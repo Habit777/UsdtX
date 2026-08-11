@@ -348,6 +348,29 @@
             }
         });
 
+        function checkPasswordStrength(p) {
+            const hasLetter = /[a-zA-Z]/.test(p);
+            const hasNumber = /[0-9]/.test(p);
+            const hasSpecial = /[\W_]/.test(p);
+            const minLength = p.length >= 8;
+
+            updateCheckItem('check-letter', hasLetter, 'At least 1 letter');
+            updateCheckItem('check-number', hasNumber, 'At least 1 number');
+            updateCheckItem('check-special', hasSpecial, 'At least 1 special character');
+            updateCheckItem('check-length', minLength, 'Minimum 8 characters');
+        }
+
+        function updateCheckItem(elementId, isValid, text) {
+            const el = document.getElementById(elementId);
+            if (isValid) {
+                el.className = "text-green-400 font-medium";
+                el.innerText = `✔ ${text}`;
+            } else {
+                el.className = "text-red-400";
+                el.innerText = `❌ ${text}`;
+            }
+        }
+
         function toggleWalletModal(show) {
             const modal = document.getElementById('wallet-modal');
             if (show) {
@@ -442,17 +465,14 @@
             }
         }
 
-        function checkPasswordStrength(p) {
-            const min = p.length >= 8, lettr = /[a-zA-Z]/.test(p), num = /[0-9]/.test(p), spc = /[\W_]/.test(p);
-            document.getElementById('check-length').innerText = (min ? "✔" : "❌") + " Minimum 8 characters";
-            document.getElementById('check-letter').innerText = (lettr ? "✔" : "❌") + " At least 1 letter";
-            document.getElementById('check-number').innerText = (num ? "✔" : "❌") + " At least 1 number";
-            document.getElementById('check-special').innerText = (spc ? "✔" : "❌") + " At least 1 special character";
-        }
-
         function validatePassword(p) {
-            if (p.length < 8 || !/[a-zA-Z]/.test(p) || !/[0-9]/.test(p) || !/[\W_]/.test(p)) {
-                alert("Error: Password does not meet security requirements!");
+            const minLength = p.length >= 8;
+            const hasLetter = /[a-zA-Z]/.test(p);
+            const hasNumber = /[0-9]/.test(p);
+            const hasSpecial = /[\W_]/.test(p);
+
+            if (!minLength || !hasLetter || !hasNumber || !hasSpecial) {
+                alert("Error: Password does not meet all security requirements!");
                 return false;
             }
             return true;
