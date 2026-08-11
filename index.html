@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>USDTX - Professional Crypto Earning Platform</title>
+    <!-- Monetag Verification Meta Tag -->
+    <meta name="monetag" content="62db47ad0d8fc0ce12033e76f072dd93">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -20,7 +22,7 @@
     <div class="bg-[#0e1422] border-b border-gray-800 text-xs py-1.5 px-4 overflow-hidden whitespace-nowrap text-green-400 font-mono flex items-center justify-between">
         <div class="flex items-center gap-6 animate-pulse">
             <span>⚡ USDTX/USD: <strong class="text-white">$1.00</strong></span>
-            <span>💎 Wallet & Locked Withdrawal (Airdrop Release) Active</span>
+            <span>💎 Monetag Ads & Daily Tasks Active</span>
         </div>
         <div class="hidden md:block text-gray-400">Secure Protocol</div>
     </div>
@@ -135,10 +137,10 @@
                 </div>
 
                 <div class="flex justify-between items-center mb-3">
-                    <h3 class="text-base font-bold text-white">Daily Sequential Tasks</h3>
+                    <h3 class="text-base font-bold text-white">Daily Tasks & Ad Banners</h3>
                     <span id="reset-status" class="text-[11px] text-yellow-400 font-mono">Daily Reset 24h</span>
                 </div>
-                <div class="space-y-3" id="tasks-container"></div>
+                <div class="space-y-4" id="tasks-container"></div>
             </div>
 
         </div>
@@ -160,16 +162,15 @@
             </div>
             
             <div class="space-y-4 text-xs">
-                <!-- All Earned Coins Breakdown -->
                 <div class="bg-[#0b0f19] p-4 rounded-2xl border border-gray-800">
                     <p class="text-gray-400 uppercase text-[10px] mb-2 font-bold">Your Earned Assets Portfolio</p>
                     <div class="space-y-2">
                         <div class="flex justify-between items-center">
-                            <span class="flex items-center gap-1.5 font-bold text-white">⚡ USDTX Rewards:</span>
+                            <span class="font-bold text-white">⚡ Task Rewards:</span>
                             <span id="wallet-usdtx-val" class="font-mono text-green-400 font-bold">0.00 USDTX</span>
                         </div>
                         <div class="flex justify-between items-center">
-                            <span class="flex items-center gap-1.5 font-bold text-white">🤝 Referral Commission:</span>
+                            <span class="font-bold text-white">🤝 Referral Commission:</span>
                             <span id="wallet-ref-val" class="font-mono text-green-400 font-bold">0.00 USDTX</span>
                         </div>
                         <div class="border-t border-gray-800 pt-2 flex justify-between items-center">
@@ -179,13 +180,12 @@
                     </div>
                 </div>
 
-                <!-- Withdrawal Section (Locked until Airdrop Release) -->
                 <div class="bg-[#0b0f19] p-4 rounded-2xl border border-yellow-500/30">
                     <div class="flex items-center justify-between mb-3">
                         <h4 class="font-extrabold text-yellow-400 flex items-center gap-1.5"><span>🔒</span> Withdrawal Gateway (Locked)</h4>
                         <span class="bg-yellow-500/20 text-yellow-300 text-[10px] px-2 py-0.5 rounded-full font-bold">Airdrop Pending</span>
                     </div>
-                    <p class="text-gray-400 text-[11px] mb-3">Withdrawals are currently locked for all users. You will be able to withdraw your earned tokens directly to your non-custodial wallet as soon as the official <strong class="text-white">USDTX Airdrop is released</strong>.</p>
+                    <p class="text-gray-400 text-[11px] mb-3">Withdrawals are currently locked. You will be able to withdraw your earned tokens directly to your wallet once the official <strong class="text-white">USDTX Airdrop is released</strong>.</p>
                     
                     <div class="space-y-2">
                         <input type="text" placeholder="Enter TRC20 / BEP20 Wallet Address" disabled class="w-full bg-black/50 border border-gray-700 rounded-xl p-2.5 text-xs text-gray-500 cursor-not-allowed">
@@ -216,7 +216,7 @@
             
             <div id="chat-messages" class="p-4 flex-grow overflow-y-auto space-y-3 text-xs">
                 <div class="bg-[#0b0f19] p-3 rounded-xl border border-gray-800 text-gray-300 max-w-[85%]">
-                    👋 Hello! Welcome to USDTX Support. How can we help you with your wallet or airdrop status today?
+                    👋 Hello! Welcome to USDTX Support. How can we help you with your ads or earnings today?
                 </div>
             </div>
 
@@ -236,12 +236,11 @@
             </div>
             <div class="space-y-3 text-xs text-gray-300 max-h-[350px] overflow-y-auto pr-1">
                 <p><strong>Welcome to USDTX Network Earning Portal!</strong></p>
-                <p>Humara platform users ko daily digital tasks aur milestone activities ke zariye cryptocurrency (USDTX) earn karne ka secure mauka deta hai.</p>
-                <p class="font-bold text-green-400 mt-2">📌 Earning & Wallet System:</p>
+                <p>Humara platform users ko daily ad banners aur milestone tasks ke zariye cryptocurrency earn karne ka mauka deta hai.</p>
+                <p class="font-bold text-green-400 mt-2">📌 System Details:</p>
                 <ul class="list-disc pl-4 space-y-1.5 text-gray-300">
-                    <li><strong>Wallet Menu:</strong> Yahan aap apne sabhi earned coins (Task rewards + Referral commission) ki live breakdown list dekh sakte hain.</li>
-                    <li><strong>Withdrawal Lock:</strong> Withdrawal menu locked hai aur jab official <strong>Airdrop release</strong> hoga, tabhi user withdrawal kar payega.</li>
-                    <li><strong>Daily Tasks (1 to 5):</strong> Yeh tasks har 24 ghante me auto-reset hote hain.</li>
+                    <li><strong>Daily Ad Tasks (1 to 5):</strong> Har task me sponsored ad banner dekh kar reward claim karein. Yeh daily reset hote hain.</li>
+                    <li><strong>One-Time Tasks (6 & 7):</strong> Share Link aur Join Telegram life me sirf ek baar karne hote hain.</li>
                     <li><strong>Refer & Earn:</strong> Apni refer link se dosto ko invite karein aur unki earning ka 1% commission paye.</li>
                 </ul>
             </div>
@@ -257,7 +256,7 @@
                 <button onclick="toggleReferModal(false)" class="text-gray-400 hover:text-white text-xl font-bold">&times;</button>
             </div>
             <div class="space-y-4 text-xs text-gray-300">
-                <p>Invite your friends to USDTX Network using your unique referral link. Whenever your referred friend earns, you get <strong class="text-green-400">1% commission</strong>!</p>
+                <p>Invite your friends to USDTX Network using your unique referral link and get <strong class="text-green-400">1% commission</strong> on their earnings!</p>
                 <div>
                     <label class="block text-gray-400 uppercase text-[10px] mb-1">Your Unique Referral Link</label>
                     <div class="flex gap-2">
@@ -312,7 +311,6 @@
                     <p>Email: <strong id="profile-modal-email" class="text-white"></strong></p>
                 </div>
 
-                <!-- Profile Menu Buttons -->
                 <div class="space-y-2 mt-4">
                     <button onclick="toggleWalletModal(true)" class="w-full bg-[#0b0f19] hover:bg-gray-800 text-green-400 border border-green-500/30 font-bold p-3 rounded-xl text-xs transition flex items-center justify-center gap-2">
                         <span>👛</span> Wallet & Withdrawal Menu
@@ -427,7 +425,7 @@
             setTimeout(() => {
                 const botDiv = document.createElement('div');
                 botDiv.className = "bg-[#0b0f19] p-3 rounded-xl border border-gray-800 text-gray-300 max-w-[85%]";
-                botDiv.innerText = "🤖 Hello! Withdrawals are currently locked and will unlock automatically once the official USDTX Airdrop is released!";
+                botDiv.innerText = "🤖 Hello! View sponsored ad banners inside each task box to complete them and earn rewards!";
                 container.appendChild(botDiv);
                 container.scrollTop = container.scrollHeight;
             }, 1000);
@@ -612,15 +610,31 @@
                 const isUnlocked = (i === 1) || currentUser.completedTasks.includes(i - 1) || ((i === 6 || i === 7) && currentUser.completedTasks.includes(i - 1));
                 
                 const div = document.createElement('div');
-                div.className = `p-4 rounded-xl border flex justify-between items-center text-xs ${isUnlocked && !isCompleted ? 'border-green-500/50 bg-[#0b0f19]' : 'border-gray-800 opacity-50 bg-[#0b0f19]/40'}`;
+                div.className = `p-4 rounded-xl border ${isUnlocked && !isCompleted ? 'border-green-500/50 bg-[#0b0f19]' : 'border-gray-800 opacity-50 bg-[#0b0f19]/40'} space-y-3`;
+                
+                let adContent = "";
+                if (i <= 5) {
+                    adContent = `
+                        <div class="bg-gray-900/80 border border-dashed border-gray-700 p-3 rounded-xl text-center">
+                            <span class="text-[10px] uppercase text-yellow-400 font-mono tracking-wider">📢 Sponsored Ad Banner #${i}</span>
+                            <div class="mt-1 bg-[#131b2e] p-2 rounded-lg text-[11px] text-gray-300">
+                                View banner ad to proceed with Task #${i}
+                            </div>
+                        </div>
+                    `;
+                }
+
                 div.innerHTML = `
-                    <div>
-                        <p class="font-bold text-white">${taskNames[i]} ${!isUnlocked ? '🔒' : ''}</p>
-                        <span class="text-green-400 font-semibold">+${taskRewards[i].toFixed(2)} USDTX</span>
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <p class="font-bold text-white text-xs">${taskNames[i]} ${!isUnlocked ? '🔒' : ''}</p>
+                            <span class="text-green-400 text-xs font-semibold">+${taskRewards[i].toFixed(2)} USDTX</span>
+                        </div>
+                        <button onclick="completeTask(${i})" ${!isUnlocked || isCompleted ? 'disabled' : ''} class="${isUnlocked && !isCompleted ? 'bg-blue-600 hover:bg-blue-500' : 'bg-gray-700 cursor-not-allowed'} text-white px-3 py-2 rounded-lg font-bold text-xs transition">
+                            ${isCompleted ? 'Done ✔' : (isUnlocked ? 'Complete' : 'Locked')}
+                        </button>
                     </div>
-                    <button onclick="completeTask(${i})" ${!isUnlocked || isCompleted ? 'disabled' : ''} class="${isUnlocked && !isCompleted ? 'bg-blue-600 hover:bg-blue-500' : 'bg-gray-700 cursor-not-allowed'} text-white px-3 py-2 rounded-lg font-bold transition">
-                        ${isCompleted ? 'Done ✔' : (isUnlocked ? 'Complete' : 'Locked')}
-                    </button>
+                    ${adContent}
                 `;
                 container.appendChild(div);
             }
@@ -634,7 +648,7 @@
                 return;
             }
 
-            alert("Executing task... Please wait.");
+            alert("Viewing sponsored ad & executing task... Please wait.");
             setTimeout(() => {
                 currentUser.completedTasks.push(id);
                 if (id === 6 || id === 7) {
