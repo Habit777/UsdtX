@@ -538,7 +538,7 @@
 
         let generatedOtp = "", tempRegData = {};
         
-        // REAL EMAIL OTP SENDING VIA EMAILJS
+        // REAL EMAIL OTP SENDING VIA EMAILJS (FIXED)
         function handleSendRealOtp(e) {
             e.preventDefault();
             const username = document.getElementById('reg-username').value.trim();
@@ -572,7 +572,7 @@
                         document.getElementById('reg-details-form').classList.add('hidden');
                         document.getElementById('reg-otp-form').classList.remove('hidden');
                     }, function(error) {
-                        alert("Failed to send email. Please check your EmailJS configurations.");
+                        alert("Failed to send email: " + (error.text || JSON.stringify(error)));
                         btn.innerText = "Send Real Email OTP";
                         btn.disabled = false;
                     });
