@@ -8,11 +8,17 @@
     <meta name="monetag" content="4ae2e9f0c5fda1bfdaf3b4001c8b3240">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("5ffV2n8pfOFjo-QQj");
+        })();
+    </script>
     <!-- Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
     <script>
-        // Firebase Configuration
         const firebaseConfig = {
             apiKey: "AIzaSyCiVii7deHMZ4iemHfs4cTGIxTnyK5p0",
             authDomain: "usdtx-68e30.firebaseapp.com",
@@ -38,7 +44,7 @@
     <div class="bg-[#0e1422] border-b border-gray-800 text-xs py-1.5 px-4 overflow-hidden whitespace-nowrap text-green-400 font-mono flex items-center justify-between">
         <div class="flex items-center gap-6 animate-pulse">
             <span>⚡ USDTX/USD: <strong class="text-white">$1.00</strong></span>
-            <span>💎 Firebase Cloud Database Active</span>
+            <span>🌐 Domain: http://usdtx.sbs/ Active</span>
         </div>
         <div class="hidden md:block text-gray-400">Secure Protocol</div>
     </div>
@@ -66,7 +72,7 @@
             <!-- 1. REGISTER SECTION -->
             <div id="register-section" class="w-full crypto-card p-8 rounded-3xl">
                 <h2 class="text-3xl font-extrabold text-green-400 mb-1 text-center">Create Account</h2>
-                <form id="reg-details-form" onsubmit="handleSendOtp(event)" class="space-y-4 mt-6">
+                <form id="reg-details-form" onsubmit="handleSendRealOtp(event)" class="space-y-4 mt-6">
                     <div>
                         <label class="block text-xs uppercase tracking-wider text-gray-400 mb-1">Username</label>
                         <input type="text" id="reg-username" required class="w-full bg-[#0b0f19] border border-gray-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-green-500" placeholder="Enter username">
@@ -85,7 +91,7 @@
                             <p id="check-length" class="text-red-400">❌ Minimum 8 characters</p>
                         </div>
                     </div>
-                    <button type="submit" class="w-full bg-green-500 hover:bg-green-400 text-black font-extrabold p-3.5 rounded-xl transition shadow-lg">Send OTP</button>
+                    <button type="submit" id="send-otp-btn" class="w-full bg-green-500 hover:bg-green-400 text-black font-extrabold p-3.5 rounded-xl transition shadow-lg">Send Real Email OTP</button>
                 </form>
 
                 <form id="reg-otp-form" onsubmit="handleVerifyOtp(event)" class="space-y-4 hidden mt-6">
@@ -232,7 +238,7 @@
             
             <div id="chat-messages" class="p-4 flex-grow overflow-y-auto space-y-3 text-xs">
                 <div class="bg-[#0b0f19] p-3 rounded-xl border border-gray-800 text-gray-300 max-w-[85%]">
-                    👋 Hello! Welcome to USDTX Support. How can we help you with your ads or earnings today?
+                    👋 Hello! Welcome to USDTX Support. How can we help you with your email verification or earnings today?
                 </div>
             </div>
 
@@ -252,12 +258,12 @@
             </div>
             <div class="space-y-3 text-xs text-gray-300 max-h-[350px] overflow-y-auto pr-1">
                 <p><strong>Welcome to USDTX Network Earning Portal!</strong></p>
-                <p>Humara platform users ko daily ad banners aur milestone tasks ke zariye cryptocurrency earn karne ka mauka deta hai.</p>
+                <p>Humara platform users ko real email verification, daily ad banners, aur milestone tasks ke zariye cryptocurrency earn karne ka mauka deta hai.</p>
                 <p class="font-bold text-green-400 mt-2">📌 System Details:</p>
                 <ul class="list-disc pl-4 space-y-1.5 text-gray-300">
-                    <li><strong>Daily Ad Tasks (1 to 5):</strong> Har task me sponsored ad banner dekh kar reward claim karein. Yeh daily reset hote hain.</li>
-                    <li><strong>One-Time Tasks (6 & 7):</strong> Share Link aur Join Telegram life me sirf ek baar karne hote hain.</li>
-                    <li><strong>Refer & Earn:</strong> Apni refer link se dosto ko invite karein aur unki earning ka 1% commission paye.</li>
+                    <li><strong>Real Email OTP:</strong> Account register karte waqt aapke email par live OTP verification code bheja jata hai.</li>
+                    <li><strong>Daily Ad Tasks (1 to 5):</strong> Har task me sponsored ad banner dekh kar reward claim karein.</li>
+                    <li><strong>Refer & Earn:</strong> Apni refer link (http://usdtx.sbs/) se dosto ko invite karein aur unki earning ka 1% commission paye.</li>
                 </ul>
             </div>
             <button onclick="toggleInfoModal(false)" class="w-full mt-5 bg-green-500 hover:bg-green-400 text-black font-bold py-2.5 rounded-xl text-xs transition">Got It</button>
@@ -406,7 +412,7 @@
             const modal = document.getElementById('refer-modal');
             if (show) {
                 toggleProfileDrawer(false);
-                const refLink = window.location.origin + window.location.pathname + "?ref=" + currentUser.userId;
+                const refLink = "http://usdtx.sbs/?ref=" + currentUser.userId;
                 document.getElementById('referral-link-input').value = refLink;
                 document.getElementById('referral-earnings').innerText = (currentUser.referralEarnings || 0).toFixed(2) + " USDTX";
                 modal.classList.remove('hidden');
@@ -465,7 +471,7 @@
             setTimeout(() => {
                 const botDiv = document.createElement('div');
                 botDiv.className = "bg-[#0b0f19] p-3 rounded-xl border border-gray-800 text-gray-300 max-w-[85%]";
-                botDiv.innerText = "🤖 Hello! View sponsored ad banners inside each task box to complete them and earn rewards!";
+                botDiv.innerText = "🤖 Hello! Verify your email using real OTP to start completing tasks and earning rewards.";
                 container.appendChild(botDiv);
                 container.scrollTop = container.scrollHeight;
             }, 1000);
@@ -531,11 +537,14 @@
         }
 
         let generatedOtp = "", tempRegData = {};
-        function handleSendOtp(e) {
+        
+        // REAL EMAIL OTP SENDING VIA EMAILJS
+        function handleSendRealOtp(e) {
             e.preventDefault();
             const username = document.getElementById('reg-username').value.trim();
             const email = document.getElementById('reg-email').value.trim();
             const password = document.getElementById('reg-password').value;
+            
             if (!validatePassword(password)) return;
 
             db.collection('users').doc(email).get().then(doc => {
@@ -543,11 +552,31 @@
                     alert("Email already registered!");
                     return;
                 }
+
                 generatedOtp = Math.floor(1000 + Math.random() * 9000).toString();
                 tempRegData = { username, email, password };
-                alert("OTP Sent to Email: " + generatedOtp);
-                document.getElementById('reg-details-form').classList.add('hidden');
-                document.getElementById('reg-otp-form').classList.remove('hidden');
+
+                const btn = document.getElementById('send-otp-btn');
+                btn.innerText = "Sending Real OTP to Email...";
+                btn.disabled = true;
+
+                const templateParams = {
+                    to_email: email,
+                    to_name: username,
+                    otp: generatedOtp
+                };
+
+                emailjs.send('service_zs86exl', 'template_anhjb86', templateParams)
+                    .then(function(response) {
+                        alert("Real OTP successfully sent to " + email);
+                        document.getElementById('reg-details-form').classList.add('hidden');
+                        document.getElementById('reg-otp-form').classList.remove('hidden');
+                    }, function(error) {
+                        alert("Failed to send email. Please check your EmailJS configurations.");
+                        btn.innerText = "Send Real Email OTP";
+                        btn.disabled = false;
+                    });
+
             }).catch(err => {
                 alert("Database error: " + err.message);
             });
