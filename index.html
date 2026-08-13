@@ -8,6 +8,22 @@
     <meta name="monetag" content="62db47ad0d8fc0ce12033e76f072dd93">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+    <script>
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCiVii7deHMZ4iemHfs4cTGIxTnyK5p0",
+            authDomain: "usdtx-68e30.firebaseapp.com",
+            projectId: "usdtx-68e30",
+            storageBucket: "usdtx-68e30.appspot.com",
+            messagingSenderId: "87762265204",
+            appId: "1:87762265204:web:bafa4b35c0491c92661d21"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+    </script>
     <style>
         body { background-color: #0b0f19; color: #ffffff; font-family: 'Inter', sans-serif; }
         .crypto-card { background: linear-gradient(145deg, #131b2e, #0e1422); border: 1px solid #1e293b; box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
@@ -22,7 +38,7 @@
     <div class="bg-[#0e1422] border-b border-gray-800 text-xs py-1.5 px-4 overflow-hidden whitespace-nowrap text-green-400 font-mono flex items-center justify-between">
         <div class="flex items-center gap-6 animate-pulse">
             <span>⚡ USDTX/USD: <strong class="text-white">$1.00</strong></span>
-            <span>💎 Monetag Ads & Daily Tasks Active</span>
+            <span>💎 Firebase Cloud Database Active</span>
         </div>
         <div class="hidden md:block text-gray-400">Secure Protocol</div>
     </div>
@@ -346,6 +362,8 @@
             if (refId) {
                 localStorage.setItem('usdtx_pending_ref', refId);
             }
+            // Fetch live users from Firestore for leaderboard
+            fetchLeaderboardFromCloud();
         });
 
         function checkPasswordStrength(p) {
@@ -478,11 +496,19 @@
             return true;
         }
 
-        function initApp() {
+        async function initApp() {
             if (currentUser) {
-                let users = JSON.parse(localStorage.getItem('usdtx_users')) || [];
-                let fresh = users.find(u => u.email === currentUser.email);
-                if (fresh) { currentUser = fresh; localStorage.setItem('usdtx_current_user', JSON.stringify(currentUser)); }
+                try {
+                    let docRef = db.collection('users').doc(currentUser.email);
+                    let doc = await docRef.get();
+                    if (doc.exists) {
+                        currentUser = doc.data();
+                        localStorage.setItem('usdtx_current_user', JSON.stringify(currentUser));
+                    }
+                } catch (e) {
+                    console.error("Error fetching user from cloud:", e);
+                }
+
                 if (!currentUser.completedTasks) currentUser.completedTasks = [];
                 if (!currentUser.oneTimeTasks) currentUser.oneTimeTasks = [];
                 if (currentUser.referralEarnings === undefined) currentUser.referralEarnings = 0.0;
@@ -495,7 +521,7 @@
                 showSection('login-section');
                 document.getElementById('nav-profile-btn').classList.add('hidden');
             }
-            renderLeaderboard();
+            fetchLeaderboardFromCloud();
         }
 
         function showSection(id) {
@@ -513,24 +539,27 @@
             const password = document.getElementById('reg-password').value;
             if (!validatePassword(password)) return;
 
-            let users = JSON.parse(localStorage.getItem('usdtx_users')) || [];
-            if (users.some(u => u.email === email)) { alert("Email already registered!"); return; }
-
-            generatedOtp = Math.floor(1000 + Math.random() * 9000).toString();
-            tempRegData = { username, email, password };
-            alert("OTP Sent to Email: " + generatedOtp);
-            document.getElementById('reg-details-form').classList.add('hidden');
-            document.getElementById('reg-otp-form').classList.remove('hidden');
+            db.collection('users').doc(email).get().then(doc => {
+                if (doc.exists) {
+                    alert("Email already registered!");
+                    return;
+                }
+                generatedOtp = Math.floor(1000 + Math.random() * 9000).toString();
+                tempRegData = { username, email, password };
+                alert("OTP Sent to Email: " + generatedOtp);
+                document.getElementById('reg-details-form').classList.add('hidden');
+                document.getElementById('reg-otp-form').classList.remove('hidden');
+            }).catch(err => {
+                alert("Database error: " + err.message);
+            });
         }
 
-        function handleVerifyOtp(e) {
+        async function handleVerifyOtp(e) {
             e.preventDefault();
             if (document.getElementById('reg-otp-input').value.trim() !== generatedOtp) {
                 alert("Invalid OTP!"); return;
             }
-            let users = JSON.parse(localStorage.getItem('usdtx_users')) || [];
             const uniqueId = Math.floor(100000000000 + Math.random() * 900000000000).toString();
-            
             const pendingRef = localStorage.getItem('usdtx_pending_ref');
 
             const newUser = {
@@ -547,30 +576,42 @@
                 lastReset: new Date().toDateString()
             };
 
-            users.push(newUser);
-            localStorage.setItem('usdtx_users', JSON.stringify(users));
-            localStorage.removeItem('usdtx_pending_ref');
-
-            currentUser = newUser;
-            localStorage.setItem('usdtx_current_user', JSON.stringify(currentUser));
-            alert("Account created successfully!");
-            initApp();
+            try {
+                await db.collection('users').doc(newUser.email).set(newUser);
+                localStorage.removeItem('usdtx_pending_ref');
+                currentUser = newUser;
+                localStorage.setItem('usdtx_current_user', JSON.stringify(currentUser));
+                alert("Account created and saved to Cloud Database successfully!");
+                initApp();
+            } catch (err) {
+                alert("Failed to save user to database: " + err.message);
+            }
         }
 
-        function handleLogin(e) {
+        async function handleLogin(e) {
             e.preventDefault();
             const email = document.getElementById('login-email').value.trim();
             const password = document.getElementById('login-password').value;
-            let users = JSON.parse(localStorage.getItem('usdtx_users')) || [];
-            const user = users.find(u => u.email === email && u.password === password);
-            if (user) {
-                if (!user.oneTimeTasks) user.oneTimeTasks = [];
-                if (user.referralEarnings === undefined) user.referralEarnings = 0.0;
-                currentUser = user;
-                localStorage.setItem('usdtx_current_user', JSON.stringify(currentUser));
-                initApp();
-            } else {
-                alert("Invalid email or password!");
+
+            try {
+                let docRef = db.collection('users').doc(email);
+                let doc = await docRef.get();
+                if (doc.exists) {
+                    let user = doc.data();
+                    if (user.password === password) {
+                        if (!user.oneTimeTasks) user.oneTimeTasks = [];
+                        if (user.referralEarnings === undefined) user.referralEarnings = 0.0;
+                        currentUser = user;
+                        localStorage.setItem('usdtx_current_user', JSON.stringify(currentUser));
+                        initApp();
+                    } else {
+                        alert("Incorrect password!");
+                    }
+                } else {
+                    alert("Email not found in cloud database!");
+                }
+            } catch (err) {
+                alert("Login error: " + err.message);
             }
         }
 
@@ -578,16 +619,17 @@
         function handleSendForgotOtp(e) {
             e.preventDefault();
             const email = document.getElementById('forgot-email').value.trim();
-            let users = JSON.parse(localStorage.getItem('usdtx_users')) || [];
-            if (!users.some(u => u.email === email)) { alert("Email not found!"); return; }
-            forgotTargetEmail = email;
-            forgotOtpCode = Math.floor(1000 + Math.random() * 9000).toString();
-            alert("Reset OTP: " + forgotOtpCode);
-            document.getElementById('forgot-email-form').classList.add('hidden');
-            document.getElementById('forgot-reset-form').classList.remove('hidden');
+            db.collection('users').doc(email).get().then(doc => {
+                if (!doc.exists) { alert("Email not found!"); return; }
+                forgotTargetEmail = email;
+                forgotOtpCode = Math.floor(1000 + Math.random() * 9000).toString();
+                alert("Reset OTP: " + forgotOtpCode);
+                document.getElementById('forgot-email-form').classList.add('hidden');
+                document.getElementById('forgot-reset-form').classList.remove('hidden');
+            });
         }
 
-        function handleVerifyAndReset(e) {
+        async function handleVerifyAndReset(e) {
             e.preventDefault();
             if (document.getElementById('forgot-otp-input').value.trim() !== forgotOtpCode) {
                 alert("Invalid OTP!"); return;
@@ -595,11 +637,13 @@
             const newPassword = document.getElementById('new-password-input').value;
             if (!validatePassword(newPassword)) return;
 
-            let users = JSON.parse(localStorage.getItem('usdtx_users')) || [];
-            users = users.map(u => { if (u.email === forgotTargetEmail) u.password = newPassword; return u; });
-            localStorage.setItem('usdtx_users', JSON.stringify(users));
-            alert("Password updated successfully!");
-            showSection('login-section');
+            try {
+                await db.collection('users').doc(forgotTargetEmail).update({ password: newPassword });
+                alert("Password updated successfully!");
+                showSection('login-section');
+            } catch (err) {
+                alert("Error updating password: " + err.message);
+            }
         }
 
         function updateDashboard() {
@@ -658,10 +702,10 @@
                 `;
                 container.appendChild(div);
             }
-            renderLeaderboard();
+            fetchLeaderboardFromCloud();
         }
 
-        function completeTask(id) {
+        async function completeTask(id) {
             if (currentUser.completedTasks.includes(id)) return;
             if (id === 7 && !confirm("Did you join our official Telegram channel? Click OK to verify and claim reward.")) {
                 alert("Verification Failed: You must join the Telegram channel to receive the reward!");
@@ -669,7 +713,7 @@
             }
 
             alert("Viewing sponsored ad & executing task... Please wait.");
-            setTimeout(() => {
+            setTimeout(async () => {
                 currentUser.completedTasks.push(id);
                 if (id === 6 || id === 7) {
                     if (!currentUser.oneTimeTasks) currentUser.oneTimeTasks = [];
@@ -680,42 +724,58 @@
                 currentUser.balance += earnedReward;
 
                 if (currentUser.referredBy) {
-                    let users = JSON.parse(localStorage.getItem('usdtx_users')) || [];
-                    let referrer = users.find(u => u.userId === currentUser.referredBy);
-                    if (referrer) {
-                        const commission = earnedReward * 0.01;
-                        referrer.balance += commission;
-                        referrer.referralEarnings = (referrer.referralEarnings || 0) + commission;
-                        users = users.map(u => u.email === referrer.email ? referrer : u);
-                        localStorage.setItem('usdtx_users', JSON.stringify(users));
+                    try {
+                        let refDocRef = db.collection('users').where('userId', '==', currentUser.referredBy);
+                        let querySnapshot = await refDocRef.get();
+                        if (!querySnapshot.empty) {
+                            let referrerDoc = querySnapshot.docs[0];
+                            let referrerData = referrerDoc.data();
+                            const commission = earnedReward * 0.01;
+                            let newRefBalance = referrerData.balance + commission;
+                            let newRefEarnings = (referrerData.referralEarnings || 0) + commission;
+
+                            await db.collection('users').doc(referrerData.email).update({
+                                balance: newRefBalance,
+                                referralEarnings: newRefEarnings
+                            });
+                        }
+                    } catch (e) {
+                        console.error("Referral commission error:", e);
                     }
                 }
 
-                saveUserData();
+                await saveUserData();
                 updateDashboard();
                 alert(`Task #${id} completed successfully! Reward added.`);
             }, 800);
         }
 
-        function saveUserData() {
-            let users = JSON.parse(localStorage.getItem('usdtx_users')) || [];
-            users = users.map(u => u.email === currentUser.email ? currentUser : u);
-            localStorage.setItem('usdtx_users', JSON.stringify(users));
-            localStorage.setItem('usdtx_current_user', JSON.stringify(currentUser));
-            renderLeaderboard();
+        async function saveUserData() {
+            try {
+                await db.collection('users').doc(currentUser.email).set(currentUser);
+                localStorage.setItem('usdtx_current_user', JSON.stringify(currentUser));
+                fetchLeaderboardFromCloud();
+            } catch (err) {
+                console.error("Error saving user data:", err);
+            }
         }
 
-        function renderLeaderboard() {
-            let users = JSON.parse(localStorage.getItem('usdtx_users')) || [];
-            users.sort((a, b) => b.balance - a.balance);
-            const list = document.getElementById('leaderboard-list');
-            list.innerHTML = "";
-            users.forEach((u, idx) => {
-                const isMe = currentUser && currentUser.email === u.email;
-                const item = document.createElement('div');
-                item.className = `flex justify-between items-center p-2 rounded-lg border text-xs ${isMe ? 'border-green-500 bg-green-500/10' : 'border-gray-800 bg-[#0b0f19]'}`;
-                item.innerHTML = `<span>#${idx+1} ${u.username} ${isMe ? '(You)' : ''}</span><strong class="text-green-400">${u.balance.toFixed(2)} USDTX</strong>`;
-                list.appendChild(item);
+        function fetchLeaderboardFromCloud() {
+            db.collection('users').orderBy('balance', 'desc').get().then(snapshot => {
+                const list = document.getElementById('leaderboard-list');
+                list.innerHTML = "";
+                let idx = 1;
+                snapshot.forEach(doc => {
+                    let u = doc.data();
+                    const isMe = currentUser && currentUser.email === u.email;
+                    const item = document.createElement('div');
+                    item.className = `flex justify-between items-center p-2 rounded-lg border text-xs ${isMe ? 'border-green-500 bg-green-500/10' : 'border-gray-800 bg-[#0b0f19]'}`;
+                    item.innerHTML = `<span>#${idx} ${u.username} ${isMe ? '(You)' : ''}</span><strong class="text-green-400">${(u.balance || 0).toFixed(2)} USDTX</strong>`;
+                    list.appendChild(item);
+                    idx++;
+                });
+            }).catch(err => {
+                console.error("Error fetching leaderboard:", err);
             });
         }
 
@@ -753,24 +813,24 @@
             }
         }
 
-        function saveProfileName() {
+        async function saveProfileName() {
             const newName = document.getElementById('edit-username').value.trim();
             if (!newName) { alert("Username cannot be empty!"); return; }
             currentUser.username = newName;
-            saveUserData();
+            await saveUserData();
             toggleEditName(false);
             document.getElementById('profile-modal-name').innerText = newName;
             document.getElementById('user-display-name').innerText = newName;
             alert("Username updated successfully!");
         }
 
-        function handleProfilePicUpload(e) {
+        async function handleProfilePicUpload(e) {
             const file = e.target.files[0];
             if (file) {
                 const reader = new FileReader();
-                reader.onload = function(evt) {
+                reader.onload = async function(evt) {
                     currentUser.profilePic = evt.target.result;
-                    saveUserData();
+                    await saveUserData();
                     toggleProfileDrawer(true);
                     alert("Profile photo updated!");
                 };
@@ -778,14 +838,14 @@
             }
         }
 
-        function handleChangePassword(e) {
+        async function handleChangePassword(e) {
             e.preventDefault();
             const oldP = document.getElementById('old-pass').value;
             const newP = document.getElementById('new-pass').value;
             if (currentUser.password !== oldP) { alert("Incorrect old password!"); return; }
             if (!validatePassword(newP)) return;
             currentUser.password = newP;
-            saveUserData();
+            await saveUserData();
             alert("Password updated successfully!");
             document.getElementById('old-pass').value = '';
             document.getElementById('new-pass').value = '';
