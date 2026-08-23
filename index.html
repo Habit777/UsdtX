@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USDTX Network - Free Crypto Earning & Task Platform</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Join USDTX Network, a professional crypto earning platform. Complete daily tasks, watch sponsored ads, refer friends, and earn cryptocurrency rewards securely." />
+    <meta name="keywords" content="crypto earning, usdtx, free crypto, task rewards, refer and earn, blockchain tasks" />
+    <meta name="author" content="USDTX Network" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="http://usdtx.sbs/" />
+    
+    <!-- Open Graph (OG) Tags for Social Sharing -->
+    <meta property="og:title" content="USDTX Network - Professional Crypto Earning Platform" />
+    <meta property="og:description" content="Earn crypto rewards daily by completing simple tasks and referring friends. Join now!" />
+    <meta property="og:url" content="http://usdtx.sbs/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Monetag Verification Meta Tag -->
+    <meta name="monetag" content="4ae2e9f0c5fda1bfdaf3b4001c8b3240">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init("5ffV2n8pfOfJo-QQj");
+       })();
+    </script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCiVii7deHMZ4iemHfs4cTGIxTnyK5p0",
+            authDomain: "usdtx-68e30.firebaseapp.com",
+            projectId: "usdtx-68e30",
+            storageBucket: "usdtx-68e30.appspot.com",
+            messagingSenderId: "87762265204",
+            appId: "1:87762265204:web:bafa4b35c0491c92661d21"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+    </script>
+    <style>
+        body { background-color: #0b0f19; color: #ffffff; font-family: 'Inter', sans-serif; }
+        .crypto-card { background: linear-gradient(145deg, #131b2e, #0e1422); border: 1px solid #1e293b; box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: #0b0f19; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+
+    <!-- Top Ticker Ribbon -->
+    <div class="bg-[#0e1422] border-b border-gray-800 text-xs py-1.5 px-4 overflow-hidden whitespace-nowrap text-green-400 font-mono flex items-center justify-between">
+        <div class="flex items-center gap-6 animate-pulse">
+            <span>⚡ USDTX/USD: <strong class="text-white">$1.00</strong></span>
+            <span>🌐 Domain: http://usdtx.sbs/ Active</span>
+        </div>
+        <div class="hidden md:block text-gray-400 flex items-center gap-2">
+            <span>Official Channel:</span> <a href="https://t.me/usdtxnetwork" target="_blank" class="text-green-400 underline">t.me/usdtxnetwork</a>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="bg-[#0e1422]/90 border-b border-gray-800 p-4 sticky top-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <button id="global-back-btn" onclick="handleGlobalBack()" class="hidden bg-[#131b2e] text-gray-300 hover:text-white border border-gray-700 px-3 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition shadow-md">
+                    <span>⬅</span> Back
+                </button>
+                <div id="nav-profile-btn" class="hidden">
+                    <button onclick="toggleProfileDrawer(true)" class="bg-[#131b2e] text-green-400 border border-green-500/30 px-3.5 py-2 rounded-xl text-sm font-semibold flex items-center gap-2 shadow-md">
+                        👤 Profile Menu
+                    </button>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="text-2xl">⚡</span>
+                <h1 class="text-xl font-extrabold text-green-400 tracking-wider">USDTX NETWORK</h1>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="container mx-auto p-4 flex-grow flex flex-col lg:flex-row items-start justify-center gap-6 pt-10 pb-12">
+
+        <div class="w-full max-w-xl mx-auto flex-grow flex items-start justify-center">
+
+            <!-- 1. REGISTER SECTION -->
+            <div id="register-section" class="w-full crypto-card p-8 rounded-3xl">
+                <h2 class="text-3xl font-extrabold text-green-400 mb-1 text-center">Create Account</h2>
+                <form id="reg-details-form" onsubmit="handleSendRealOtp(event)" class="space-y-4 mt-6">
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gray-400 mb-1">Username</label>
+                        <input type="text" id="reg-username" required class="w-full bg-[#0b0f19] border border-gray-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-green-500" placeholder="Enter username">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gray-400 mb-1">Email Address</label>
+                        <input type="email" id="reg-email" required class="w-full bg-[#0b0f19] border border-gray-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-green-500" placeholder="user@example.com">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gray-400 mb-1">Password</label>
+                        <input type="password" id="reg-password" oninput="checkPasswordStrength(this.value)" required class="w-full bg-[#0b0f19] border border-gray-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-green-500" placeholder="••••••••">
+                        <div class="mt-2 text-xs space-y-1 bg-[#0b0f19]/60 p-3 rounded-xl border border-gray-800">
+                            <p id="check-letter" class="text-red-400">❌ At least 1 letter</p>
+                            <p id="check-number" class="text-red-400">❌ At least 1 number</p>
+                            <p id="check-special" class="text-red-400">❌ At least 1 special character</p>
+                            <p id="check-length" class="text-red-400">❌ Minimum 8 characters</p>
+                        </div>
+                    </div>
+                    <button type="submit" id="send-otp-btn" class="w-full bg-green-500 hover:bg-green-400 text-black font-extrabold p-3.5 rounded-xl transition shadow-lg">Send Real Email OTP</button>
+                </form>
+
+                <form id="reg-otp-form" onsubmit="handleVerifyOtp(event)" class="space-y-4 hidden mt-6">
+                    <p class="text-xs text-green-400 text-center">OTP sent to your primary inbox!</p>
+                    <input type="text" id="reg-otp-input" required maxlength="4" class="w-full bg-[#0b0f19] border border-gray-700 rounded-xl p-3.5 text-white text-center text-xl tracking-widest focus:outline-none focus:border-green-500" placeholder="••••">
+                    <button type="submit" class="w-full bg-green-500 hover:bg-green-400 text-black font-extrabold p-3.5 rounded-xl transition shadow-lg">Verify & Register</button>
+                    
+                    <div class="flex justify-between items-center pt-2 text-xs">
+                        <button type="button" id="resend-otp-btn" onclick="handleResendOtp()" class="text-green-400 hover:underline font-bold disabled:text-gray-500">Resend OTP</button>
+                        <button type="button" onclick="handleBackToRegisterForm()" class="text-gray-400 hover:text-white underline">Change Email / Edit</button>
+                    </div>
+                </form>
+                <p class="text-center text-sm text-gray-400 mt-6">Already have an account? <a href="javascript:void(0)" onclick="showSection('login-section')" class="text-green-400 hover:underline">Login</a></p>
+            </div>
+
+            <!-- 2. LOGIN SECTION -->
+            <div id="login-section" class="w-full crypto-card p-8 rounded-3xl hidden">
+                <h2 class="text-3xl font-extrabold text-green-400 mb-1 text-center">Welcome Back</h2>
+                <form onsubmit="handleLogin(event)" class="space-y-4 mt-6">
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gray-400 mb-1">Email Address</label>
+                        <input type="email" id="login-email" required class="w-full bg-[#0b0f19] border border-gray-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-green-500" placeholder="user@example.com">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gray-400 mb-1">Password</label>
+                        <input type="password" id="login-password" required class="w-full bg-[#0b0f19] border border-gray-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-green-500" placeholder="••••••••">
+                    </div>
+                    <div class="text-right">
+                        <a href="javascript:void(0)" onclick="showSection('forgot-section')" class="text-xs text-green-400 hover:underline">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="w-full bg-green-500 hover:bg-green-400 text-black font-extrabold p-3.5 rounded-xl transition shadow-lg">Login</button>
+                </form>
+                <p class="text-center text-sm text-gray-400 mt-6">Don't have an account? <a href="javascript:void(0)" onclick="showSection('register-section')" class="text-green-400 hover:underline">Register</a></p>
+            </div>
+
+            <!-- FORGOT PASSWORD SECTION -->
+            <div id="forgot-section" class="w-full crypto-card p-8 rounded-3xl hidden">
+                <h2 class="text-3xl font-extrabold text-green-400 mb-1 text-center">Password Recovery</h2>
+                <form id="forgot-email-form" onsubmit="handleSendForgotOtp(event)" class="space-y-4 mt-6">
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gray-400 mb-1">Registered Email</label>
+                        <input type="email" id="forgot-email" required class="w-full bg-[#0b0f19] border border-gray-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-green-500" placeholder="user@example.com">
+                    </div>
+                    <button type="submit" class="w-full bg-green-500 hover:bg-green-400 text-black font-extrabold p-3.5 rounded-xl transition shadow-lg">Send Reset OTP</button>
+                </form>
+                <form id="forgot-reset-form" onsubmit="handleVerifyAndReset(event)" class="space-y-4 hidden mt-6">
+                    <p class="text-xs text-green-400 text-center">Reset OTP sent to your email!</p>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gray-400 mb-1">Enter OTP</label>
+                        <input type="text" id="forgot-otp-input" required maxlength="4" class="w-full bg-[#0b0f19] border border-gray-700 rounded-xl p-3 text-white text-center tracking-widest focus:outline-none focus:border-green-500" placeholder="••••">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gray-400 mb-1">New Password</label>
+                        <input type="password" id="new-password-input" required class="w-full bg-[#0b0f19] border border-gray-700 rounded-xl p-3 text-white focus:outline-none focus:border-green-500" placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="w-full bg-green-500 hover:bg-green-400 text-black font-extrabold p-3.5 rounded-xl transition shadow-lg">Update Password</button>
+                </form>
+                <p class="text-center text-sm text-gray-400 mt-6"><a href="javascript:void(0)" onclick="showSection('login-section')" class="text-green-400 hover:underline">Back to Login</a></p>
+            </div>
+
+            <!-- 3. DASHBOARD SECTION -->
+            <div id="dashboard-section" class="w-full crypto-card p-8 rounded-3xl hidden">
+                <div class="flex justify-between items-center mb-6 border-b border-gray-800 pb-4">
+                    <div>
+                        <span class="text-xs text-gray-400">Welcome,</span>
+                        <p id="user-display-name" class="font-extrabold text-lg text-green-400"></p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-[10px] text-gray-400">User ID</span>
+                        <p id="user-display-id" class="text-xs font-mono text-green-300"></p>
+                    </div>
+                </div>
+
+                <div class="bg-[#0b0f19] border border-green-500/30 p-6 rounded-2xl mb-6 text-center shadow-inner">
+                    <p class="text-xs text-gray-400 uppercase">Wallet Balance</p>
+                    <h2 id="wallet-balance" class="text-4xl font-black text-green-400 mt-2">0.00 USDTX</h2>
+                    <button onclick="toggleWalletModal(true)" class="mt-4 bg-green-500/10 hover:bg-green-500/20 text-green-400 border border-green-500/30 px-4 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-2">
+                        <span>👛</span> Open Wallet & Withdrawal Menu
+                    </button>
+                </div>
+
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="text-base font-bold text-white">Daily Tasks & Ad Banners</h3>
+                    <span id="reset-status" class="text-[11px] text-yellow-400 font-mono">Daily Reset 24h</span>
+                </div>
+                <div class="space-y-4" id="tasks-container"></div>
+            </div>
+
+        </div>
+
+        <!-- Leaderboard & Share Hub -->
+        <div class="w-full lg:w-80 crypto-card p-6 rounded-3xl space-y-4">
+            <div>
+                <h3 class="text-base font-extrabold text-green-400 mb-4 border-b border-gray-800 pb-3">🏆 Live Ranking</h3>
+                <div id="leaderboard-list" class="space-y-2 max-h-[200px] overflow-y-auto"></div>
+            </div>
+
+            <div class="bg-[#0b0f19] p-4 rounded-2xl border border-green-500/30 text-center space-y-2">
+                <span class="text-2xl">🔗</span>
+                <h4 class="font-bold text-xs text-white">Share Platform & Earn</h4>
+                <p class="text-[11px] text-gray-400">Share http://usdtx.sbs/ with friends and get 1% referral commission.</p>
+                <button onclick="handleSharePlatform()" class="w-full bg-green-500 hover:bg-green-400 text-black font-extrabold py-2 rounded-xl text-xs transition">Share Platform Link</button>
+            </div>
+            
+            <div class="bg-[#0b0f19] p-4 rounded-2xl border border-gray-800 text-center">
+                <span class="text-2xl">📢</span>
+                <h4 class="font-bold text-xs text-white mt-1">Official Telegram Channel</h4>
+                <p class="text-[11px] text-gray-400 mt-1">Join our channel for updates & announcements.</p>
+                <a href="https://t.me/usdtxnetwork" target="_blank" class="mt-3 block bg-green-500/20 hover:bg-green-500/30 text-green-400 border border-green-500/30 font-extrabold py-2 rounded-xl text-xs transition">Join t.me/usdtxnetwork</a>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- WALLET & WITHDRAWAL MODAL -->
+    <div id="wallet-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="crypto-card w-full max-w-lg p-6 rounded-3xl shadow-2xl border border-green-500/30 relative">
+            <div class="flex justify-between items-center mb-4 border-b border-gray-800 pb-3">
+                <h3 class="text-lg font-extrabold text-green-400">👛 Asset Wallet & Withdrawal Menu</h3>
+                <button onclick="toggleWalletModal(false)" class="text-gray-400 hover:text-white text-xl font-bold">&times;</button>
+            </div>
+            
+            <div class="space-y-4 text-xs">
+                <div class="bg-[#0b0f19] p-4 rounded-2xl border border-gray-800">
+                    <p class="text-gray-400 uppercase text-[10px] mb-2 font-bold">Your Earned Assets Portfolio</p>
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-white">⚡ Task Rewards:</span>
+                            <span id="wallet-usdtx-val" class="font-mono text-green-400 font-bold">0.00 USDTX</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-white">🤝 Referral Commission:</span>
+                            <span id="wallet-ref-val" class="font-mono text-green-400 font-bold">0.00 USDTX</span>
+                        </div>
+                        <div class="border-t border-gray-800 pt-2 flex justify-between items-center">
+                            <span class="font-extrabold text-white">Total Portfolio Balance:</span>
+                            <span id="wallet-total-val" class="font-mono text-green-400 font-extrabold text-sm">0.00 USDTX</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-[#0b0f19] p-4 rounded-2xl border border-yellow-500/30">
+                    <div class="flex items-center justify-between mb-3">
+                        <h4 class="font-extrabold text-yellow-400 flex items-center gap-1.5"><span>🔒</span> Withdrawal Gateway (Locked)</h4>
+                        <span class="bg-yellow-500/20 text-yellow-300 text-[10px] px-2 py-0.5 rounded-full font-bold">Airdrop Pending</span>
+                    </div>
+                    <p class="text-gray-400 text-[11px] mb-3">Withdrawals are currently locked. You will be able to withdraw your earned tokens directly to your wallet once the official <strong class="text-white">USDTX Airdrop is released</strong>.</p>
+                    
+                    <div class="space-y-2">
+                        <input type="text" placeholder="Enter TRC20 / BEP20 Wallet Address" disabled class="w-full bg-black/50 border border-gray-700 rounded-xl p-2.5 text-xs text-gray-500 cursor-not-allowed">
+                        <input type="number" placeholder="Amount to Withdraw" disabled class="w-full bg-black/50 border border-gray-700 rounded-xl p-2.5 text-xs text-gray-500 cursor-not-allowed">
+                        <button disabled class="w-full bg-gray-700 text-gray-400 font-extrabold py-3 rounded-xl text-xs cursor-not-allowed mt-1">Withdrawals Locked (Airdrop Release Required)</button>
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="toggleWalletModal(false)" class="w-full mt-5 bg-green-500 hover:bg-green-400 text-black font-bold py-2.5 rounded-xl text-xs transition">Close Wallet</button>
+        </div>
+    </div>
+
+    <!-- LIVE SUPPORT CHATBOT WIDGET -->
+    <div class="fixed bottom-5 right-5 z-50">
+        <button onclick="toggleChatWindow()" id="chat-toggle-btn" class="bg-green-500 hover:bg-green-400 text-black font-bold p-4 rounded-full shadow-2xl flex items-center justify-center transition transform hover:scale-105">
+            💬
+        </button>
+
+        <div id="chat-window" class="crypto-card w-80 sm:w-96 h-[420px] rounded-2xl shadow-2xl flex flex-col justify-between hidden border border-green-500/30">
+            <div class="bg-[#0e1422] p-4 border-b border-gray-800 flex justify-between items-center rounded-t-2xl">
+                <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></span>
+                    <h3 class="font-bold text-sm text-green-400">USDTX Live Support</h3>
+                </div>
+                <button onclick="toggleChatWindow()" class="text-gray-400 hover:text-white font-bold text-lg">&times;</button>
+            </div>
+            
+            <div id="chat-messages" class="p-4 flex-grow overflow-y-auto space-y-3 text-xs">
+                <div class="bg-[#0b0f19] p-3 rounded-xl border border-gray-800 text-gray-300 max-w-[85%]">
+                    👋 Hello! Welcome to USDTX Support. Join our official channel <a href="https://t.me/usdtxnetwork" target="_blank" class="text-green-400 underline">t.me/usdtxnetwork</a> for updates!
+                </div>
+            </div>
+
+            <div class="p-3 bg-[#0e1422] border-t border-gray-800 flex gap-2 rounded-b-2xl">
+                <input type="text" id="chat-input" onkeypress="handleChatKey(event)" placeholder="Type your message..." class="flex-grow bg-[#0b0f19] border border-gray-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-green-500">
+                <button onclick="sendChatMessage()" class="bg-green-500 hover:bg-green-400 text-black font-bold px-4 py-2 rounded-xl text-xs transition">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Website Information Modal -->
+    <div id="info-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="crypto-card w-full max-w-md p-6 rounded-3xl shadow-2xl border border-green-500/30 relative">
+            <div class="flex justify-between items-center mb-4 border-b border-gray-800 pb-3">
+                <h3 class="text-lg font-extrabold text-green-400">📊 Website & Earning Information</h3>
+                <button onclick="toggleInfoModal(false)" class="text-gray-400 hover:text-white text-xl font-bold">&times;</button>
+            </div>
+            <div class="space-y-3 text-xs text-gray-300 max-h-[350px] overflow-y-auto pr-1">
+                <p><strong>Welcome to USDTX Network Earning Portal!</strong></p>
+                <p>Humara platform users ko real email verification (direct primary inbox), daily ad banners, aur milestone tasks ke zariye cryptocurrency earn karne ka mauka deta hai.</p>
+                <p class="font-bold text-green-400 mt-2">📌 System Details:</p>
+                <ul class="list-disc pl-4 space-y-1.5 text-gray-300">
+                    <li><strong>Direct Inbox OTP:</strong> Account register karte waqt aapke email par live verification code bheja jata hai.</li>
+                    <li><strong>Daily Ad Tasks (1 to 5):</strong> Har task me sponsored ad banner dekh kar reward claim karein.</li>
+                    <li><strong>Official Telegram:</strong> Join <a href="https://t.me/usdtxnetwork" target="_blank" class="text-green-400 underline">t.me/usdtxnetwork</a> for updates.</li>
+                    <li><strong>Refer & Earn:</strong> Apni refer link se dosto ko invite karein aur unki earning ka 1% commission paye.</li>
+                </ul>
+            </div>
+            <button onclick="toggleInfoModal(false)" class="w-full mt-5 bg-green-500 hover:bg-green-400 text-black font-bold py-2.5 rounded-xl text-xs transition">Got It</button>
+        </div>
+    </div>
+
+    <!-- Refer & Earn Modal -->
+    <div id="refer-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="crypto-card w-full max-w-md p-6 rounded-3xl shadow-2xl border border-green-500/30 relative">
+            <div class="flex justify-between items-center mb-4 border-b border-gray-800 pb-3">
+                <h3 class="text-lg font-extrabold text-green-400">🤝 Refer & Earn Program</h3>
+                <button onclick="toggleReferModal(false)" class="text-gray-400 hover:text-white text-xl font-bold">&times;</button>
+            </div>
+            <div class="space-y-4 text-xs text-gray-300">
+                <p>Invite your friends to USDTX Network using your unique referral link and get <strong class="text-green-400">1% commission</strong> on their earnings!</p>
+                <div>
+                    <label class="block text-gray-400 uppercase text-[10px] mb-1">Your Unique Referral Link</label>
+                    <div class="flex gap-2">
+                        <input type="text" id="referral-link-input" readonly class="w-full bg-[#0b0f19] border border-gray-700 rounded-xl p-2.5 text-xs text-green-300 font-mono">
+                        <button onclick="copyReferralLink()" class="bg-green-500 hover:bg-green-400 text-black font-bold px-4 py-2.5 rounded-xl text-xs transition">Copy</button>
+                    </div>
+                </div>
+                <div class="bg-[#0b0f19] p-3 rounded-xl border border-gray-800 text-center">
+                    <span class="text-gray-400 text-[10px]">Total Commission Earned</span>
+                    <p id="referral-earnings" class="text-lg font-black text-green-400">0.00 USDTX</p>
+                </div>
+            </div>
+            <button onclick="toggleReferModal(false)" class="w-full mt-5 bg-green-500 hover:bg-green-400 text-black font-bold py-2.5 rounded-xl text-xs transition">Close</button>
+        </div>
+    </div>
+
+    <!-- Profile Drawer -->
+    <div id="profile-drawer" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex justify-start">
+        <div class="crypto-card w-80 h-full p-6 shadow-2xl border-r border-green-500/30 flex flex-col justify-between overflow-y-auto">
+            <div>
+                <div class="flex justify-between items-center mb-6 border-b border-gray-800 pb-4">
+                    <h3 class="text-xl font-extrabold text-green-400">Profile Menu</h3>
+                    <button onclick="toggleProfileDrawer(false)" class="text-gray-400 text-2xl font-bold">&times;</button>
+                </div>
+                
+                <div class="text-center mb-4 bg-[#0b0f19] p-3 rounded-xl border border-gray-800">
+                    <div class="w-16 h-16 mx-auto rounded-full bg-gray-800 overflow-hidden mb-2 flex items-center justify-center">
+                        <img id="profile-pic-preview" src="" class="w-full h-full object-cover hidden">
+                        <span id="profile-pic-placeholder" class="text-xl">👤</span>
+                    </div>
+                    <label class="bg-gray-800 text-green-400 px-3 py-1 rounded-lg text-xs cursor-pointer inline-block border border-gray-700">
+                        Change Photo <input type="file" accept="image/*" onchange="handleProfilePicUpload(event)" class="hidden">
+                    </label>
+                </div>
+
+                <div class="space-y-3 bg-[#0b0f19] p-4 rounded-xl text-xs border border-gray-800">
+                    <div>
+                        <span class="text-gray-400 uppercase text-[10px]">Username</span>
+                        <div class="flex justify-between items-center mt-0.5">
+                            <strong id="profile-modal-name" class="text-white text-sm"></strong>
+                            <button onclick="toggleEditName(true)" class="text-green-400 underline text-[10px]">Edit</button>
+                        </div>
+                        <div id="name-edit-view" class="hidden mt-2 space-y-1">
+                            <input type="text" id="edit-username" class="w-full bg-black/50 border border-gray-700 p-1 rounded text-xs text-white" placeholder="New username">
+                            <div class="flex gap-1">
+                                <button onclick="saveProfileName()" class="bg-green-600 text-black font-bold px-2 py-0.5 rounded text-[10px]">Save</button>
+                                <button onclick="toggleEditName(false)" class="bg-gray-700 text-white px-2 py-0.5 rounded text-[10px]">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                    <p>ID: <strong id="profile-modal-id" class="text-green-300 font-mono"></strong></p>
+                    <p>Email: <strong id="profile-modal-email" class="text-white"></strong></p>
+                </div>
+
+                <div class="space-y-2 mt-4">
+                    <button onclick="toggleWalletModal(true)" class="w-full bg-[#0b0f19] hover:bg-gray-800 text-green-400 border border-green-500/30 font-bold p-3 rounded-xl text-xs transition flex items-center justify-center gap-2">
+                        <span>👛</span> Wallet & Withdrawal Menu
+                    </button>
+                    <button onclick="toggleReferModal(true)" class="w-full bg-[#0b0f19] hover:bg-gray-800 text-green-400 border border-green-500/30 font-bold p-3 rounded-xl text-xs transition flex items-center justify-center gap-2">
+                        <span>🤝</span> Refer & Earn (1% Commission)
+                    </button>
+                    <button onclick="handleSharePlatform()" class="w-full bg-[#0b0f19] hover:bg-gray-800 text-green-400 border border-green-500/30 font-bold p-3 rounded-xl text-xs transition flex items-center justify-center gap-2">
+                        <span>🔗</span> Share Platform Link
+                    </button>
+                    <a href="https://t.me/usdtxnetwork" target="_blank" class="w-full bg-[#0b0f19] hover:bg-gray-800 text-green-400 border border-green-500/30 font-bold p-3 rounded-xl text-xs transition flex items-center justify-center gap-2">
+                        <span>📢</span> Join Telegram Channel
+                    </a>
+                    <button onclick="toggleInfoModal(true)" class="w-full bg-[#0b0f19] hover:bg-gray-800 text-green-400 border border-green-500/30 font-bold p-3 rounded-xl text-xs transition flex items-center justify-center gap-2">
+                        <span>📊</span> Website Information & Earnings
+                    </button>
+                </div>
+
+                <div class="bg-[#0b0f19] p-4 rounded-xl mt-4 border border-gray-800">
+                    <h4 class="text-xs font-bold text-green-400 mb-2">Change Password</h4>
+                    <form onsubmit="handleChangePassword(event)" class="space-y-2">
+                        <input type="password" id="old-pass" required placeholder="Old Password" class="w-full bg-black/50 border border-gray-700 p-2 rounded text-xs text-white">
+                        <input type="password" id="new-pass" required placeholder="New Password" class="w-full bg-black/50 border border-gray-700 p-2 rounded text-xs text-white">
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white p-2 rounded text-xs font-bold transition">Update Password</button>
+                    </form>
+                </div>
+            </div>
+            <button onclick="handleLogout()" class="w-full bg-red-500 hover:bg-red-600 text-white font-bold p-3 rounded-xl mt-4 text-xs transition">Logout</button>
+        </div>
+    </div>
+
+    <script>
+        let currentUser = JSON.parse(localStorage.getItem('usdtx_current_user')) || null;
+        const taskRewards = { 1: 1.00, 2: 1.20, 3: 1.40, 4: 1.60, 5: 1.80, 6: 2.50, 7: 3.00 };
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const refId = urlParams.get('ref');
+            if (refId) {
+                localStorage.setItem('usdtx_pending_ref', refId);
+            }
+            initApp();
+        });
+
+        function checkPasswordStrength(p) {
+            const hasLetter = /[a-zA-Z]/.test(p);
+            const hasNumber = /[0-9]/.test(p);
+            const hasSpecial = /[\W_]/.test(p);
+            const minLength = p.length >= 8;
+
+            updateCheckItem('check-letter', hasLetter, 'At least 1 letter');
+            updateCheckItem('check-number', hasNumber, 'At least 1 number');
+            updateCheckItem('check-special', hasSpecial, 'At least 1 special character');
+            updateCheckItem('check-length', minLength, 'Minimum 8 characters');
+        }
+
+        function updateCheckItem(elementId, isValid, text) {
+            const el = document.getElementById(elementId);
+            if (el) {
+                if (isValid) {
+                    el.className = "text-green-400 font-medium";
+                    el.innerText = `✔ ${text}`;
+                } else {
+                    el.className = "text-red-400";
+                    el.innerText = `❌ ${text}`;
+                }
+            }
+        }
+
+        function toggleWalletModal(show) {
+            const modal = document.getElementById('wallet-modal');
+            if (show) {
+                toggleProfileDrawer(false);
+                const taskEarnings = currentUser.balance - (currentUser.referralEarnings || 0);
+                document.getElementById('wallet-usdtx-val').innerText = taskEarnings.toFixed(2) + " USDTX";
+                document.getElementById('wallet-ref-val').innerText = (currentUser.referralEarnings || 0).toFixed(2) + " USDTX";
+                document.getElementById('wallet-total-val').innerText = currentUser.balance.toFixed(2) + " USDTX";
+                modal.classList.remove('hidden');
+            } else {
+                modal.classList.add('hidden');
+            }
+        }
+
+        function toggleReferModal(show) {
+            const modal = document.getElementById('refer-modal');
+            if (show) {
+                toggleProfileDrawer(false);
+                const refLink = "http://usdtx.sbs/?ref=" + currentUser.userId;
+                document.getElementById('referral-link-input').value = refLink;
+                document.getElementById('referral-earnings').innerText = (currentUser.referralEarnings || 0).toFixed(2) + " USDTX";
+                modal.classList.remove('hidden');
+            } else {
+                modal.classList.add('hidden');
+            }
+        }
+
+        function copyReferralLink() {
+            const input = document.getElementById('referral-link-input');
+            input.select();
+            input.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(input.value);
+            alert("Referral link copied to clipboard!");
+        }
+
+        function handleSharePlatform() {
+            const shareUrl = currentUser ? "http://usdtx.sbs/?ref=" + currentUser.userId : "http://usdtx.sbs/";
+            const shareText = "Join USDTX Network - Professional Crypto Earning Platform & Earn Rewards! Join here: " + shareUrl;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'USDTX Network',
+                    text: shareText,
+                    url: shareUrl,
+                }).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(shareUrl);
+                alert("Platform link copied to clipboard! Share it with your friends.");
+            }
+        }
+
+        function toggleInfoModal(show) {
+            const modal = document.getElementById('info-modal');
+            if (show) {
+                toggleProfileDrawer(false);
+                modal.classList.remove('hidden');
+            } else {
+                modal.classList.add('hidden');
+            }
+        }
+
+        function toggleChatWindow() {
+            const win = document.getElementById('chat-window');
+            const btn = document.getElementById('chat-toggle-btn');
+            if (win.classList.contains('hidden')) {
+                win.classList.remove('hidden');
+                btn.classList.add('hidden');
+            } else {
+                win.classList.add('hidden');
+                btn.classList.remove('hidden');
+            }
+        }
+
+        function handleChatKey(e) {
+            if (e.key === 'Enter') sendChatMessage();
+        }
+
+        function sendChatMessage() {
+            const input = document.getElementById('chat-input');
+            const msg = input.value.trim();
+            if (!msg) return;
+
+            const container = document.getElementById('chat-messages');
+            const userDiv = document.createElement('div');
+            userDiv.className = "bg-green-500/20 border border-green-500/30 p-3 rounded-xl text-green-300 max-w-[85%] ml-auto text-right";
+            userDiv.innerText = msg;
+            container.appendChild(userDiv);
+            input.value = "";
+            container.scrollTop = container.scrollHeight;
+
+            setTimeout(() => {
+                const botDiv = document.createElement('div');
+                botDiv.className = "bg-[#0b0f19] p-3 rounded-xl border border-gray-800 text-gray-300 max-w-[85%]";
+                botDiv.innerHTML = "🤖 Hello! Join our official channel <a href='https://t.me/usdtxnetwork' target='_blank' class='text-green-400 underline'>t.me/usdtxnetwork</a> for updates.";
+                container.appendChild(botDiv);
+                container.scrollTop = container.scrollHeight;
+            }, 1000);
+        }
+
+        function checkDailyReset() {
+            if (!currentUser) return;
+            const today = new Date().toDateString();
+            if (currentUser.lastReset !== today) {
+                if (!currentUser.oneTimeTasks) currentUser.oneTimeTasks = [];
+                currentUser.completedTasks = currentUser.completedTasks.filter(id => id === 6 || id === 7);
+                currentUser.lastReset = today;
+                saveUserData();
+            }
+        }
+
+        function validatePassword(p) {
+            const minLength = p.length >= 8;
+            const hasLetter = /[a-zA-Z]/.test(p);
+            const hasNumber = /[0-9]/.test(p);
+            const hasSpecial = /[\W_]/.test(p);
+
+            if (!minLength || !hasLetter || !hasNumber || !hasSpecial) {
+                alert("Error: Password must be at least 8 characters long and include a letter, a number, and a special character!");
+                return false;
+            }
+            return true;
+        }
+
+        async function initApp() {
+            if (currentUser) {
+                try {
+                    let docRef = db.collection('users').doc(currentUser.email);
+                    let doc = await docRef.get();
+                    if (doc.exists) {
+                        currentUser = doc.data();
+                        localStorage.setItem('usdtx_current_user', JSON.stringify(currentUser));
+                    }
+                } catch (e) {
+                    console.error("Error fetching user from cloud:", e);
+                }
+
+                if (!currentUser.completedTasks) currentUser.completedTasks = [];
+                if (!currentUser.oneTimeTasks) currentUser.oneTimeTasks = [];
+                if (currentUser.referralEarnings === undefined) currentUser.referralEarnings = 0.0;
+                
+                checkDailyReset();
+                showSection('dashboard-section');
+                updateDashboard();
+                document.getElementById('nav-profile-btn').classList.remove('hidden');
+            } else {
+                showSection('register-section');
+                document.getElementById('nav-profile-btn').classList.add('hidden');
+            }
+            fetchLeaderboardFromCloud();
+            updateGlobalBackButton();
+        }
+
+        function showSection(id) {
+            ['register-section', 'login-section', 'forgot-section', 'dashboard-section'].forEach(s => {
+                const el = document.getElementById(s);
+                if (el) el.classList.add('hidden');
+            });
+            const target = document.getElementById(id);
+            if (target) target.classList.remove('hidden');
+            
+            if(id === 'forgot-section') {
+                const fEmail = document.getElementById('forgot-email-form');
+                const fReset = document.getElementById('forgot-reset-form');
+                if(fEmail) fEmail.classList.remove('hidden');
+                if(fReset) fReset.classList.add('hidden');
+            }
+            updateGlobalBackButton();
+        }
+
+        function updateGlobalBackButton() {
+            const backBtn = document.getElementById('global-back-btn');
+            if(!backBtn) return;
+
+            const dashboardSec = document.getElementById('dashboard-section');
+            if (dashboardSec && !dashboardSec.classList.contains('hidden')) {
+                backBtn.classList.add('hidden');
+                return;
+            }
+
+            const regOtpForm = document.getElementById('reg-otp-form');
+            const forgotResetForm = document.getElementById('forgot-reset-form');
+            const loginSec = document.getElementById('login-section');
+            const forgotSec = document.getElementById('forgot-section');
+
+            const isOtpStep = regOtpForm && !regOtpForm.classList.contains('hidden');
+            const isForgotResetStep = forgotResetForm && !forgotResetForm.classList.contains('hidden');
+            const isLogin = loginSec && !loginSec.classList.contains('hidden');
+            const isForgot = forgotSec && !forgotSec.classList.contains('hidden');
+
+            if (isOtpStep || isForgotResetStep || isLogin || isForgot) {
+                backBtn.classList.remove('hidden');
+            } else {
+                backBtn.classList.add('hidden');
+            }
+        }
+
+        function handleGlobalBack() {
+            const regOtpForm = document.getElementById('reg-otp-form');
+            const forgotResetForm = document.getElementById('forgot-reset-form');
+            const loginSec = document.getElementById('login-section');
+            const forgotSec = document.getElementById('forgot-section');
+
+            const isOtpStep = regOtpForm && !regOtpForm.classList.contains('hidden');
+            const isForgotResetStep = forgotResetForm && !forgotResetForm.classList.contains('hidden');
+            const isLogin = loginSec && !loginSec.classList.contains('hidden');
+            const isForgot = forgotSec && !forgotSec.classList.contains('hidden');
+
+            if (isOtpStep) {
+                handleBackToRegisterForm();
+            } else if (isForgotResetStep) {
+                if(forgotResetForm) forgotResetForm.classList.add('hidden');
+                const fEmail = document.getElementById('forgot-email-form');
+                if(fEmail) fEmail.classList.remove('hidden');
+                updateGlobalBackButton();
+            } else if (isLogin || isForgot) {
+                showSection('register-section');
+            }
+        }
+
+        let generatedOtp = "", tempRegData = {};
+        
+        function handleSendRealOtp(e) {
+            e.preventDefault();
+            const username = document.getElementById('reg-username').value.trim();
+            const email = document.getElementById('reg-email').value.trim();
+            const password = document.getElementById('reg-password').value;
+            
+            if (!validatePassword(password)) return;
+
+            db.collection('users').doc(email).get().then(doc => {
+                if (doc.exists) {
+                    alert("Email already registered!");
+                    return;
+                }
+
+                generatedOtp = Math.floor(1000 + Math.random() * 9000).toString();
+                tempRegData = { username, email, password };
+
+                const btn = document.getElementById('send-otp-btn');
+                btn.innerText = "Sending Real OTP to Inbox...";
+                btn.disabled = true;
+
+                const templateParams = {
+                    to_email: email,
+                    to_name: username,
+                    otp: generatedOtp,
+                    time: "10 minutes"
+                };
+
+                emailjs.send('service_zs86exl', 'template_anhjb86', templateParams)
+                    .then(function(response) {
+                        alert("Real OTP successfully sent to primary inbox of " + email);
+                        document.getElementById('reg-details-form').classList.add('hidden');
+                        document.getElementById('reg-otp-form').classList.remove('hidden');
+                        updateGlobalBackButton();
+                        btn.innerText = "Send Real Email OTP";
+                        btn.disabled = false;
+                    }, function(error) {
+                        alert("Failed to send email: " + JSON.stringify(error));
+                        btn.innerText = "Send Real Email OTP";
+                        btn.disabled = false;
+                    });
+
+            }).catch(err => {
+                alert("Database error: " + err.message);
+            });
+        }
+
+        function handleResendOtp() {
+            const resendBtn = document.getElementById('resend-otp-btn');
+            resendBtn.innerText = "Resending...";
+            resendBtn.disabled = true;
+
+            generatedOtp = Math.floor(1000 + Math.random() * 9000).toString();
+
+            const templateParams = {
+                to_email: tempRegData.email,
+                to_name: tempRegData.username,
+                otp: generatedOtp,
+                time: "10 minutes"
+            };
+
+            emailjs.send('service_zs86exl', 'template_anhjb86', templateParams)
+                .then(function(response) {
+                    alert("New OTP successfully resent to " + tempRegData.email);
+                    resendBtn.innerText = "Resend OTP";
+                    resendBtn.disabled = false;
+                }, function(error) {
+                    alert("Failed to resend email: " + JSON.stringify(error));
+                    resendBtn.innerText = "Resend OTP";
+                    resendBtn.disabled = false;
+                });
+        }
+
+        function handleBackToRegisterForm() {
+            document.getElementById('reg-otp-form').classList.add('hidden');
+            document.getElementById('reg-details-form').classList.remove('hidden');
+            const btn = document.getElementById('send-otp-btn');
+            btn.innerText = "Send Real Email OTP";
+            btn.disabled = false;
+            updateGlobalBackButton();
+        }
+
+        async function handleVerifyOtp(e) {
+            e.preventDefault();
+            if (document.getElementById('reg-otp-input').value.trim() !== generatedOtp) {
+                alert("Invalid OTP!"); return;
+            }
+            const uniqueId = Math.floor(100000000000 + Math.random() * 900000000000).toString();
+            const pendingRef = localStorage.getItem('usdtx_pending_ref');
+
+            const newUser = {
+                userId: uniqueId,
+                username: tempRegData.username,
+                email: tempRegData.email,
+                password: tempRegData.password,
+                balance: 0.0,
+                completedTasks: [],
+                oneTimeTasks: [],
+                profilePic: "",
+                referredBy: pendingRef || null,
+                referralEarnings: 0.0,
+                lastReset: new Date().toDateString()
+            };
+
+            try {
+                await db.collection('users').doc(newUser.email).set(newUser);
+                localStorage.removeItem('usdtx_pending_ref');
+                currentUser = newUser;
+                localStorage.setItem('usdtx_current_user', JSON.stringify(currentUser));
+                alert("Account created and saved to Cloud Database successfully!");
+                initApp();
+            } catch (err) {
+                alert("Failed to save user to database: " + err.message);
+            }
+        }
+
+        async function handleLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value.trim();
+            const password = document.getElementById('login-password').value;
+
+            try {
+                let docRef = db.collection('users').doc(email);
+                let doc = await docRef.get();
+                if (doc.exists) {
+                    let user = doc.data();
+                    if (user.password === password) {
+                        if (!user.oneTimeTasks) user.oneTimeTasks = [];
+                        if (user.referralEarnings === undefined) user.referralEarnings = 0.0;
+                        currentUser = user;
+                        localStorage.setItem('usdtx_current_user', JSON.stringify(currentUser));
+                        initApp();
+                    } else {
+                        alert("Incorrect password!");
+                    }
+                } else {
+                    alert("Email not found in cloud database!");
+                }
+            } catch (err) {
+                alert("Login error: " + err.message);
+            }
+        }
+
+        let forgotTargetEmail = "", forgotOtpCode = "";
+        function handleSendForgotOtp(e) {
+            e.preventDefault();
+            const email = document.getElementById('forgot-email').value.trim();
+            
+            db.collection('users').doc(email).get().then(doc => {
+                if (!doc.exists) { 
+                    alert("Email not found in cloud database!"); 
+                    return; 
+                }
+                
+                forgotTargetEmail = email;
+                forgotOtpCode = Math.floor(1000 + Math.random() * 9000).toString();
+
+                const btn = e.target.querySelector('button');
+                const originalText = btn ? btn.innerText : "Send Reset OTP";
+                if(btn) {
+                    btn.innerText = "Sending Reset OTP...";
+                    btn.disabled = true;
+                }
+
+                const templateParams = {
+                    to_email: email,
+                    to_name: doc.data().username || 'User',
+                    otp: forgotOtpCode,
+                    time: "10 minutes"
+                };
+
+                emailjs.send('service_zs86exl', 'template_anhjb86', templateParams)
+                    .then(function(response) {
+                        alert("Password reset OTP successfully sent to your email!");
+                        document.getElementById('forgot-email-form').classList.add('hidden');
+                        document.getElementById('forgot-reset-form').classList.remove('hidden');
+                        updateGlobalBackButton();
+                        if(btn) {
+                            btn.innerText = originalText;
+                            btn.disabled = false;
+                        }
+                    }, function(error) {
+                        alert("Failed to send email: " + JSON.stringify(error));
+                        if(btn) {
+                            btn.innerText = originalText;
+                            btn.disabled = false;
+                        }
+                    });
+
+            }).catch(err => {
+                alert("Database error: " + err.message);
+            });
+        }
+
+        async function handleVerifyAndReset(e) {
+            e.preventDefault();
+            const enteredOtp = document.getElementById('forgot-otp-input').value.trim();
+            if (enteredOtp !== forgotOtpCode) {
+                alert("Invalid OTP!"); return;
+            }
+            const newPassword = document.getElementById('new-password-input').value;
+            if (!validatePassword(newPassword)) return;
+
+            try {
+                await db.collection('users').doc(forgotTargetEmail).update({ password: newPassword });
+                alert("Password updated successfully!");
+                showSection('login-section');
+            } catch (err) {
+                alert("Error updating password: " + err.message);
+            }
+        }
+
+        function updateDashboard() {
+            checkDailyReset();
+            document.getElementById('user-display-name').innerText = currentUser.username;
+            document.getElementById('user-display-id').innerText = currentUser.userId;
+            document.getElementById('wallet-balance').innerText = currentUser.balance.toFixed(2) + " USDTX";
+
+            const container = document.getElementById('tasks-container');
+            container.innerHTML = "";
+
+            const taskNames = {
+                1: "Task 1: Watch Ad #1",
+                2: "Task 2: Watch Ad #2",
+                3: "Task 3: Watch Ad #3",
+                4: "Task 4: Watch Ad #4",
+                5: "Task 5: Watch Ad #5",
+                6: "Task 6: Share Platform Link (One-Time)",
+                7: "Task 7: Join Official Telegram Channel (One-Time)"
+            };
+
+            for (let i = 1; i <= 7; i++) {
+                if ((i === 6 || i === 7) && currentUser.oneTimeTasks && currentUser.oneTimeTasks.includes(i)) {
+                    continue;
+                }
+
+                const isCompleted = currentUser.completedTasks.includes(i);
+                const isUnlocked = (i === 1) || currentUser.completedTasks.includes(i - 1) || ((i === 6 || i === 7) && currentUser.completedTasks.includes(i - 1));
+                
+                const div = document.createElement('div');
+                div.className = `p-4 rounded-xl border ${isUnlocked && !isCompleted ? 'border-green-500/50 bg-[#0b0f19]' : 'border-gray-800 opacity-50 bg-[#0b0f19]/40'} space-y-3`;
+                
+                let adContent = "";
+                if (i <= 5) {
+                    adContent = `
+                        <div class="bg-gray-900/80 border border-dashed border-gray-700 p-3 rounded-xl text-center">
+                            <span class="text-[10px] uppercase text-yellow-400 font-mono tracking-wider">📢 Sponsored Ad Banner #${i}</span>
+                            <div class="mt-1 bg-[#131b2e] p-2 rounded-lg text-[11px] text-gray-300">
+                                View banner ad to proceed with Task #${i}
+                            </div>
+                        </div>
+                    `;
+                } else if (i === 6) {
+                    adContent = `
+                        <div class="bg-gray-900/80 border border-dashed border-green-500/30 p-3 rounded-xl text-center">
+                            <span class="text-[10px] uppercase text-green-400 font-mono tracking-wider">📢 Share Task</span>
+                            <div class="mt-1 text-[11px] text-gray-300">
+                                Share platform link <button onclick="handleSharePlatform()" class="text-green-400 underline font-bold">http://usdtx.sbs/</button> with friends.
+                            </div>
+                        </div>
+                    `;
+                } else if (i === 7) {
+                    adContent = `
+                        <div class="bg-gray-900/80 border border-dashed border-green-500/30 p-3 rounded-xl text-center">
+                            <span class="text-[10px] uppercase text-green-400 font-mono tracking-wider">📢 Telegram Task</span>
+                            <div class="mt-1 text-[11px] text-gray-300">
+                                Join <a href="https://t.me/usdtxnetwork" target="_blank" class="text-green-400 underline font-bold">t.me/usdtxnetwork</a> to complete this task.
+                            </div>
+                        </div>
+                    `;
+                }
+
+                div.innerHTML = `
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <p class="font-bold text-white text-xs">${taskNames[i]} ${!isUnlocked ? '🔒' : ''}</p>
+                            <span class="text-green-400 text-xs font-semibold">+${taskRewards[i].toFixed(2)} USDTX</span>
+                        </div>
+                        <button onclick="completeTask(${i})" ${!isUnlocked || isCompleted ? 'disabled' : ''} class="${isUnlocked && !isCompleted ? 'bg-blue-600 hover:bg-blue-500' : 'bg-gray-700 cursor-not-allowed'} text-white px-3 py-2 rounded-lg font-bold text-xs transition">
+                            ${isCompleted ? 'Done ✔' : (isUnlocked ? 'Complete' : 'Locked')}
+                        </button>
+                    </div>
+                    ${adContent}
+                `;
+                container.appendChild(div);
+            }
+            fetchLeaderboardFromCloud();
+        }
+
+        async function completeTask(id) {
+            if (currentUser.completedTasks.includes(id)) return;
+            
+            // Task 1 se 5 ke liye Monetag Direct Link open hogi
+            if (id <= 5) {
+                window.open("https://omg10.com/4/11638882", "_blank");
+            } else if (id === 6) {
+                handleSharePlatform();
+            } else if (id === 7) {
+                window.open('https://t.me/usdtxnetwork', '_blank');
+            }
+
+            if (id === 6) {
+                if (!confirm("Did you share the platform link with your friends? Click OK to verify and claim reward.")) {
+                    alert("Verification Failed: You must share the platform link to receive the reward!");
+                    return;
+                }
+            } else if (id === 7) {
+                if (!confirm("Did you join our official Telegram channel (t.me/usdtxnetwork)? Click OK to verify and claim reward.")) {
+                    alert("Verification Failed: You must join the Telegram channel to receive the reward!");
+                    return;
+                }
+            } else {
+                alert("Opening ad link... Watch/view the ad and return to claim your reward.");
+            }
+
+            setTimeout(async () => {
+                currentUser.completedTasks.push(id);
+                if (id === 6 || id === 7) {
+                    if (!currentUser.oneTimeTasks) currentUser.oneTimeTasks = [];
+                    currentUser.oneTimeTasks.push(id);
+                }
+                
+                const earnedReward = taskRewards[id];
+                currentUser.balance += earnedReward;
+
+                if (currentUser.referredBy) {
+                    try {
+                        let refDocRef = db.collection('users').where('userId', '==', currentUser.referredBy);
+                        let querySnapshot = await refDocRef.get();
+                        if (!querySnapshot.empty) {
+                            let referrerDoc = querySnapshot.docs[0];
+                            let referrerData = referrerDoc.data();
+                            const commission = earnedReward * 0.01;
+                            let newRefBalance = referrerData.balance + commission;
+                            let newRefEarnings = (referrerData.referralEarnings || 0) + commission;
+
+                            await db.collection('users').doc(referrerData.email).update({
+                                balance: newRefBalance,
+                                referralEarnings: newRefEarnings
+                            });
+                        }
+                    } catch (e) {
+                        console.error("Referral commission error:", e);
+                    }
+                }
+
+                await saveUserData();
+                updateDashboard();
+                alert(`Task #${id} completed successfully! Reward added.`);
+            }, 1000);
+        }
+
+        async function saveUserData() {
+            try {
+                await db.collection('users').doc(currentUser.email).set(currentUser);
+                localStorage.setItem('usdtx_current_user', JSON.stringify(currentUser));
+                fetchLeaderboardFromCloud();
+            } catch (err) {
+                console.error("Error saving user data:", err);
+            }
+        }
+
+        function fetchLeaderboardFromCloud() {
+            db.collection('users').orderBy('balance', 'desc').get().then(snapshot => {
+                const list = document.getElementById('leaderboard-list');
+                if(!list) return;
+                list.innerHTML = "";
+                let idx = 1;
+                snapshot.forEach(doc => {
+                    let u = doc.data();
+                    const isMe = currentUser && currentUser.email === u.email;
+                    const item = document.createElement('div');
+                    item.className = `flex justify-between items-center p-2 rounded-lg border text-xs ${isMe ? 'border-green-500 bg-green-500/10' : 'border-gray-800 bg-[#0b0f19]'}`;
+                    item.innerHTML = `<span>#${idx} ${u.username} ${isMe ? '(You)' : ''}</span><strong class="text-green-400">${(u.balance || 0).toFixed(2)} USDTX</strong>`;
+                    list.appendChild(item);
+                    idx++;
+                });
+            }).catch(err => {
+                console.error("Error fetching leaderboard:", err);
+            });
+        }
+
+        function toggleProfileDrawer(show) {
+            const drawer = document.getElementById('profile-drawer');
+            if (show) {
+                document.getElementById('profile-modal-name').innerText = currentUser.username;
+                document.getElementById('profile-modal-id').innerText = currentUser.userId;
+                document.getElementById('profile-modal-email').innerText = currentUser.email;
+                
+                const img = document.getElementById('profile-pic-preview');
+                const placeholder = document.getElementById('profile-pic-placeholder');
+                if (currentUser.profilePic) {
+                    img.src = currentUser.profilePic;
+                    img.classList.remove('hidden');
+                    placeholder.classList.add('hidden');
+                } else {
+                    img.classList.add('hidden');
+                    placeholder.classList.remove('hidden');
+                }
+                toggleEditName(false);
+                drawer.classList.remove('hidden');
+            } else {
+                drawer.classList.add('hidden');
+            }
+        }
+
+        function toggleEditName(show) {
+            const editDiv = document.getElementById('name-edit-view');
+            if (show) {
+                document.getElementById('edit-username').value = currentUser.username;
+                editDiv.classList.remove('hidden');
+            } else {
+                editDiv.classList.add('hidden');
+            }
+        }
+
+        async function saveProfileName() {
+            const newName = document.getElementById('edit-username').value.trim();
+            if (!newName) { alert("Username cannot be empty!"); return; }
+            currentUser.username = newName;
+            await saveUserData();
+            toggleEditName(false);
+            document.getElementById('profile-modal-name').innerText = newName;
+            document.getElementById('user-display-name').innerText = newName;
+            alert("Username updated successfully!");
+        }
+
+        async function handleProfilePicUpload(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = async function(evt) {
+                    currentUser.profilePic = evt.target.result;
+                    await saveUserData();
+                    toggleProfileDrawer(true);
+                    alert("Profile photo updated!");
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        async function handleChangePassword(e) {
+            e.preventDefault();
+            const oldP = document.getElementById('old-pass').value;
+            const newP = document.getElementById('new-pass').value;
+            if (currentUser.password !== oldP) { alert("Incorrect old password!"); return; }
+            if (!validatePassword(newP)) return;
+            currentUser.password = newP;
+            await saveUserData();
+            alert("Password updated successfully!");
+            document.getElementById('old-pass').value = '';
+            document.getElementById('new-pass').value = '';
+            toggleProfileDrawer(false);
+        }
+
+        function handleLogout() {
+            localStorage.removeItem('usdtx_current_user');
+            currentUser = null;
+            toggleProfileDrawer(false);
+            initApp();
+        }
+    </script>
+</body>
+</html>
