@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USDTX Network - Professional Crypto Earning Platform</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Join USDTX Network, a professional crypto earning platform. Complete daily tasks, watch sponsored ads, refer friends, and earn cryptocurrency rewards securely." />
+    <meta name="keywords" content="crypto earning, usdtx, free crypto, task rewards, refer and earn, blockchain tasks" />
+    <meta name="author" content="USDTX Network" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="http://usdtx.sbs/" />
+    
+    <!-- Open Graph (OG) Tags for Social Sharing -->
+    <meta property="og:title" content="USDTX Network - Professional Crypto Earning Platform" />
+    <meta property="og:description" content="Earn crypto rewards daily by completing simple tasks and referring friends. Join now!" />
+    <meta property="og:url" content="http://usdtx.sbs/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Monetag Verification Meta Tag -->
+    <meta name="monetag" content="4ae2e9f0c5fda1bfdaf3b4001c8b3240">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init("5ffV2n8pfOfJo-QQj");
+       })();
+    </script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCiVii7deHMZ4iemHfs4cTGIxTnyK5p0",
+            authDomain: "usdtx-68e30.firebaseapp.com",
+            projectId: "usdtx-68e30",
+            storageBucket: "usdtx-68e30.appspot.com",
+            messagingSenderId: "87762265204",
+            appId: "1:87762265204:web:bafa4b35c0491c92661d21"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+    </script>
+    <style>
+        body { background-color: #07090e; color: #f8fafc; font-family: 'Inter', sans-serif; }
+        .crypto-card { background: linear-gradient(135deg, #0e1322 0%, #090d18 100%); border: 1px solid rgba(30, 41, 59, 0.7); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .btn-professional { background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); transition: all 0.3s ease; }
+        .btn-professional:hover { background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%); transform: translateY(-1px); }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #07090e; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-green-500 selection:text-black">
+
+    <!-- Top Ticker Ribbon -->
+    <div class="bg-[#0b0f19] border-b border-gray-800/80 text-xs py-2 px-4 overflow-hidden whitespace-nowrap text-green-400 font-mono flex items-center justify-between">
+        <div class="flex items-center gap-6 animate-pulse">
+            <span>⚡ USDTX Index: <strong class="text-white">$1.00 USD</strong></span>
+            <span>🌐 Network Node: http://usdtx.sbs/ [ONLINE]</span>
+        </div>
+        <div class="hidden md:flex items-center gap-2 text-gray-400">
+            <span>Official Portal:</span> <a href="https://t.me/usdtxnetwork" target="_blank" class="text-green-400 hover:underline">t.me/usdtxnetwork</a>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="bg-[#0b0f19]/95 backdrop-blur-md border-b border-gray-800/80 px-4 py-3 sticky top-0 z-40">
+        <div class="container mx-auto flex justify-between items-center relative">
+            <div class="flex items-center gap-3 z-10">
+                <button id="global-back-btn" onclick="handleGlobalBack()" class="hidden bg-[#131b2e] hover:bg-[#1e293b] text-gray-300 hover:text-white border border-gray-700/60 px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition shadow-sm">
+                    <span>←</span> Back
+                </button>
+                <div id="nav-profile-btn" class="hidden">
+                    <button onclick="toggleProfileDrawer(true)" class="bg-[#131b2e] hover:bg-[#1e293b] text-green-400 border border-green-500/30 px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 transition shadow-sm">
+                        <span class="w-2 h-2 rounded-full bg-green-500 animate-ping"></span> 👤 Profile
+                    </button>
+                </div>
+            </div>
+            <!-- Centered Brand Title -->
+            <div class="absolute left-1/2 transform -translate-x-1/2 flex items-center gap-2">
+                <span class="text-xl">⚡</span>
+                <h1 class="text-base md:text-lg font-black text-green-400 tracking-wider uppercase">USDTX NETWORK</h1>
+            </div>
+            <div></div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="container mx-auto p-4 flex-grow flex flex-col lg:flex-row items-start justify-center gap-6 pt-6 pb-12">
+
+        <div class="w-full max-w-xl mx-auto flex-grow flex items-start justify-center">
+
+            <!-- 1. REGISTER SECTION -->
+            <div id="register-section" class="w-full crypto-card p-6 md:p-8 rounded-2xl">
+                <div class="text-center mb-6">
+                    <span class="text-xs uppercase tracking-widest text-green-500 font-bold">Secure Access</span>
+                    <h2 class="text-2xl md:text-3xl font-black text-white mt-1">Create Account</h2>
+                </div>
+                <form id="reg-details-form" onsubmit="handleSendRealOtp(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1">Username</label>
+                        <input type="text" id="reg-username" required class="w-full bg-[#07090e] border border-gray-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-green-500 transition" placeholder="Enter unique username">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1">Email Address</label>
+                        <input type="email" id="reg-email" required class="w-full bg-[#07090e] border border-gray-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-green-500 transition" placeholder="name@example.com">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1">Password Credentials</label>
+                        <input type="password" id="reg-password" required class="w-full bg-[#07090e] border border-gray-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-green-500 transition" placeholder="••••••••">
+                        <div class="mt-2 text-xs space-y-1 bg-[#07090e]/80 p-3 rounded-xl border border-gray-800/80">
+                            <p id="check-letter" class="text-red-400 font-medium">❌ At least 1 letter</p>
+                            <p id="check-number" class="text-red-400 font-medium">❌ At least 1 number</p>
+                            <p id="check-special" class="text-red-400 font-medium">❌ At least 1 special character</p>
+                            <p id="check-length" class="text-red-400 font-medium">❌ Minimum 8 characters</p>
+                        </div>
+                    </div>
+                    <button type="submit" id="send-otp-btn" class="w-full btn-professional text-black font-black py-3.5 rounded-xl transition shadow-lg text-sm tracking-wide uppercase">Send Verification OTP</button>
+                </form>
+
+                <form id="reg-otp-form" onsubmit="handleVerifyOtp(event)" class="space-y-4 hidden mt-4">
+                    <div class="bg-green-500/10 border border-green-500/30 p-3 rounded-xl text-center">
+                        <p class="text-xs text-green-400 font-semibold">🔒 Secure OTP has been dispatched to your primary inbox.</p>
+                    </div>
+                    <input type="text" id="reg-otp-input" required maxlength="4" class="w-full bg-[#07090e] border border-gray-800 rounded-xl p-3.5 text-white text-center text-2xl tracking-[1rem] font-mono focus:outline-none focus:border-green-500 transition" placeholder="••••">
+                    <button type="submit" class="w-full btn-professional text-black font-black py-3.5 rounded-xl transition shadow-lg text-sm tracking-wide uppercase">Verify & Initialize Account</button>
+                    
+                    <div class="flex justify-between items-center pt-2 text-xs">
+                        <button type="button" id="resend-otp-btn" onclick="handleResendOtp()" class="text-green-400 hover:underline font-bold disabled:text-gray-600">Resend Code</button>
+                        <button type="button" onclick="handleBackToRegisterForm()" class="text-gray-400 hover:text-white underline">Edit Details</button>
+                    </div>
+                </form>
+                <p class="text-center text-xs text-gray-400 mt-6">Already registered? <a href="#login" onclick="event.preventDefault(); showSection('login-section');" class="text-green-400 font-bold hover:underline">Access Terminal (Login)</a></p>
+            </div>
+
+            <!-- 2. LOGIN SECTION -->
+            <div id="login-section" class="w-full crypto-card p-6 md:p-8 rounded-2xl hidden">
+                <div class="text-center mb-6">
+                    <span class="text-xs uppercase tracking-widest text-green-500 font-bold">Authentication</span>
+                    <h2 class="text-2xl md:text-3xl font-black text-white mt-1">Welcome Back</h2>
+                </div>
+                <form onsubmit="handleLogin(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1">Registered Email</label>
+                        <input type="email" id="login-email" required class="w-full bg-[#07090e] border border-gray-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-green-500 transition" placeholder="name@example.com">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1">Password Key</label>
+                        <input type="password" id="login-password" required class="w-full bg-[#07090e] border border-gray-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-green-500 transition" placeholder="••••••••">
+                    </div>
+                    <div class="text-right">
+                        <a href="#forgot" onclick="event.preventDefault(); showSection('forgot-section');" class="text-xs text-green-400 font-semibold hover:underline">Recover Password?</a>
+                    </div>
+                    <button type="submit" class="w-full btn-professional text-black font-black py-3.5 rounded-xl transition shadow-lg text-sm tracking-wide uppercase">Authenticate Terminal</button>
+                </form>
+                <p class="text-center text-xs text-gray-400 mt-6">New user node? <a href="#register" onclick="event.preventDefault(); showSection('register-section');" class="text-green-400 font-bold hover:underline">Create Account</a></p>
+            </div>
+
+            <!-- FORGOT PASSWORD SECTION -->
+            <div id="forgot-section" class="w-full crypto-card p-6 md:p-8 rounded-2xl hidden">
+                <div class="text-center mb-6">
+                    <span class="text-xs uppercase tracking-widest text-green-500 font-bold">Security Recovery</span>
+                    <h2 class="text-2xl md:text-3xl font-black text-white mt-1">Password Reset</h2>
+                </div>
+                <form id="forgot-email-form" onsubmit="handleSendForgotOtp(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1">Account Email</label>
+                        <input type="email" id="forgot-email" required class="w-full bg-[#07090e] border border-gray-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-green-500 transition" placeholder="name@example.com">
+                    </div>
+                    <button type="submit" class="w-full btn-professional text-black font-black py-3.5 rounded-xl transition shadow-lg text-sm tracking-wide uppercase">Send Recovery OTP</button>
+                </form>
+                <form id="forgot-reset-form" onsubmit="handleVerifyAndReset(event)" class="space-y-4 hidden">
+                    <div class="bg-green-500/10 border border-green-500/30 p-3 rounded-xl text-center">
+                        <p class="text-xs text-green-400 font-semibold">🔑 Reset code verified. Provide new credentials.</p>
+                    </div>
+                    <div>
+                        <label class="block text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1">Enter OTP Code</label>
+                        <input type="text" id="forgot-otp-input" required maxlength="4" class="w-full bg-[#07090e] border border-gray-800 rounded-xl p-3 text-white text-center tracking-[0.5em] font-mono focus:outline-none focus:border-green-500" placeholder="••••">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1">New Secure Password</label>
+                        <input type="password" id="new-password-input" required class="w-full bg-[#07090e] border border-gray-800 rounded-xl p-3 text-white focus:outline-none focus:border-green-500" placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="w-full btn-professional text-black font-black py-3.5 rounded-xl transition shadow-lg text-sm tracking-wide uppercase">Update Security Key</button>
+                </form>
+                <p class="text-center text-xs text-gray-400 mt-6"><a href="#login" onclick="event.preventDefault(); showSection('login-section');" class="text-green-400 font-bold hover:underline">Return to Terminal Login</a></p>
+            </div>
+
+            <!-- 3. DASHBOARD SECTION -->
+            <div id="dashboard-section" class="w-full crypto-card p-6 md:p-8 rounded-2xl hidden">
+                <div class="flex justify-between items-center mb-6 border-b border-gray-800/80 pb-4">
+                    <div>
+                        <span class="text-[10px] uppercase tracking-wider text-gray-400 font-semibold">Active Operator</span>
+                        <p id="user-display-name" class="font-black text-base md:text-lg text-green-400"></p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-[10px] uppercase tracking-wider text-gray-400 font-semibold">ID</span>
+                        <p id="user-display-id" class="text-xs font-mono text-green-300 font-bold"></p>
+                    </div>
+                </div>
+
+                <div class="bg-[#07090e] border border-green-500/30 p-6 rounded-2xl mb-6 text-center shadow-inner relative overflow-hidden">
+                    <div class="absolute -right-10 -bottom-10 w-32 h-32 bg-green-500/5 rounded-full blur-2xl"></div>
+                    <p class="text-xs text-gray-400 uppercase tracking-widest font-semibold">Total Portfolio Assets</p>
+                    <h2 id="wallet-balance" class="text-3xl md:text-4xl font-black text-green-400 mt-2 tracking-tight">0.00 USDTX</h2>
+                    <button onclick="toggleWalletModal(true)" class="mt-4 bg-green-500/10 hover:bg-green-500/20 text-green-400 border border-green-500/30 px-4 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-2 shadow-sm">
+                        <span>👛</span> Wallet
+                    </button>
+                </div>
+
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="text-sm font-bold text-white uppercase tracking-wider">Milestone Tasks</h3>
+                    <span id="reset-status" class="text-[11px] text-yellow-400 font-mono bg-yellow-500/10 px-2 py-0.5 rounded border border-yellow-500/20">Cycle Reset 24h</span>
+                </div>
+                <div class="space-y-3.5" id="tasks-container"></div>
+            </div>
+
+        </div>
+
+        <!-- Leaderboard & Professional Hub -->
+        <div class="w-full lg:w-80 crypto-card p-5 rounded-2xl space-y-4">
+            <div>
+                <h3 class="text-xs font-extrabold text-green-400 uppercase tracking-wider mb-3 border-b border-gray-800/80 pb-2.5 flex items-center justify-between">
+                    <span>🏆 Leaderboard Rank</span>
+                    <span class="text-[10px] text-gray-500 font-mono">Live</span>
+                </h3>
+                <div id="leaderboard-list" class="space-y-2 max-h-[220px] overflow-y-auto pr-1"></div>
+            </div>
+
+            <!-- Professional Action Hub -->
+            <div class="bg-[#07090e] p-4 rounded-xl border border-green-500/20 text-center space-y-2">
+                <span class="text-xl">🔗</span>
+                <h4 class="font-bold text-xs text-white uppercase tracking-wide">Affiliate Network</h4>
+                <p class="text-[11px] text-gray-400 leading-relaxed">Broadcast network link & secure 1% perpetual commission.</p>
+                <button onclick="handleSharePlatform()" class="w-full btn-professional text-black font-extrabold py-2.5 rounded-xl text-xs uppercase tracking-wider shadow-md">Broadcast Link</button>
+            </div>
+            
+            <div class="bg-[#07090e] p-4 rounded-xl border border-gray-800 text-center">
+                <span class="text-xl">📢</span>
+                <h4 class="font-bold text-xs text-white uppercase tracking-wide mt-1">Official Broadcast</h4>
+                <p class="text-[11px] text-gray-400 mt-0.5">Access official channel intelligence & updates.</p>
+                <a href="https://t.me/usdtxnetwork" target="_blank" class="mt-2.5 block bg-green-500/10 hover:bg-green-500/20 text-green-400 border border-green-500/30 font-extrabold py-2 rounded-xl text-xs transition">Join t.me/usdtxnetwork</a>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- WALLET, WITHDRAWAL & P2P TRANSFER MODAL -->
+    <div id="wallet-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="crypto-card w-full max-w-lg p-6 md:p-8 rounded-2xl shadow-2xl border border-green-500/30 relative max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-4 border-b border-gray-800/80 pb-3">
+                <h3 class="text-base font-black text-green-400 uppercase tracking-wider">👛 Wallet</h3>
+                <button onclick="toggleWalletModal(false)" class="text-gray-400 hover:text-white text-xl font-bold">&times;</button>
+            </div>
+            
+            <div class="space-y-4 text-xs">
+                <div class="bg-[#07090e] p-4 rounded-xl border border-gray-800">
+                    <p class="text-gray-400 uppercase text-[10px] mb-2 font-bold tracking-wider">Your Unique Wallet Address</p>
+                    <div class="flex gap-2 mb-3">
+                        <input type="text" id="my-wallet-address" readonly class="w-full bg-black/50 border border-gray-800 rounded-xl p-2.5 text-xs text-green-300 font-mono">
+              
