@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USDTX Network - Professional Crypto Earning Platform</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Join USDTX Network, a professional crypto earning platform. Complete daily tasks, watch sponsored ads, refer friends, and earn cryptocurrency rewards securely." />
+    <meta name="keywords" content="crypto earning, usdtx, free crypto, task rewards, refer and earn, blockchain tasks" />
+    <meta name="author" content="USDTX Network" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="http://usdtx.sbs/" />
+    
+    <!-- Open Graph (OG) Tags for Social Sharing -->
+    <meta property="og:title" content="USDTX Network - Professional Crypto Earning Platform" />
+    <meta property="og:description" content="Earn crypto rewards daily by completing simple tasks and referring friends. Join now!" />
+    <meta property="og:url" content="http://usdtx.sbs/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Monetag Verification Meta Tag -->
+    <meta name="monetag" content="4ae2e9f0c5fda1bfdaf3b4001c8b3240">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init("5ffV2n8pfOfJo-QQj");
+       })();
+    </script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCiVii7deHMZ4iemHfs4cTGIxTnyK5p0",
+            authDomain: "usdtx-68e30.firebaseapp.com",
+            projectId: "usdtx-68e30",
+            storageBucket: "usdtx-68e30.appspot.com",
+            messagingSenderId: "87762265204",
+            appId: "1:87762265204:web:bafa4b35c0491c92661d21"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+    </script>
+    <style>
+        body { background-color: #07090e; color: #f8fafc; font-family: 'Inter', sans-serif; }
+        .crypto-card { background: linear-gradient(135deg, #0e1322 0%, #090d18 100%); border: 1px solid rgba(30, 41, 59, 0.7); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .btn-professional { background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); transition: all 0.3s ease; }
+        .btn-professional:hover { background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%); transform: translateY(-1px); }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #07090e; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-green-500 selection:text-black">
+
+    <!-- Top Ticker Ribbon -->
+    <div class="bg-[#0b0f19] border-b border-gray-800/80 text-xs py-2 px-4 overflow-hidden whitespace-nowrap text-green-400 font-mono flex items-center justify-between">
+        <div class="flex items-center gap-6 animate-pulse">
+            <span>⚡ USDTX Index: <strong class="text-white">$1.00 USD</strong></span>
+            <span>🌐 Network Node: http://usdtx.sbs/ [ONLINE]</span>
+        </div>
+        <div class="hidden md:flex items-center gap-2 text-gray-400">
+            <span>Official Portal:</span> <a href="https://t.me/usdtxnetwork" target="_blank" class="text-green-400 hover:underline">t.me/usdtxnetwork</a>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="bg-[#0b0f19]/95 backdrop-blur-md border-b border-gray-800/80 px-4 py-3 sticky top-0 z-40">
+        <div class="container mx-auto flex justify-between items-center relative">
+            <div class="flex items-center gap-3 z-10">
+                <button id="global-back-btn" onclick="handleGlobalBack()" class="hidden bg-[#131b2e] hover:bg-[#1e293b] text-gray-300 hover:text-white border border-gray-700/60 px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition shadow-sm">
+                    <span>←</span> Back
+                </button>
+                <div id="nav-profile-btn" class="hidden">
+                    <button onclick="toggleProfileDrawer(true)" class="bg-[#131b2e] hover:bg-[#1e293b] text-green-400 border border-green-500/30 px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 transition shadow-sm">
+                        <span class="w-2 h-2 rounded-full bg-green-500 animate-ping"></span> 👤 Profile
+                    </button>
+                </div>
+            </div>
+            <!-- Centered Brand Title -->
+            <div class="absolute left-1/2 transform -translate-x-1/2 flex items-center gap-2">
+                <span class="text-xl">⚡</span>
+                <h1 class="text-base md:text-lg font-black text-green-400 tracking-wider uppercase">USDTX NETWORK</h1>
+            </div>
+            <div></div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="container mx-auto p-4 flex-grow flex flex-col lg:flex-row items-start justify-center gap-6 pt-6 pb-12">
+
+        <div class="w-full max-w-xl mx-auto flex-grow flex items-start justify-center">
+
+            <!-- 1. REGISTER SECTION -->
+            <div id="register-section" class="w-full crypto-card p-6 md:p-8 rounded-2xl">
+                <div class="text-center mb-6">
+                    <span class="text-xs uppercase tracking-widest text-green-500 font-bold">Secure Access</span>
+                    <h2 class="text-2xl md:text-3xl font-black text-white mt-1">Create Account</h2>
+                </div>
+                <form id="reg-details-form" onsubmit="handleSendRealOtp(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1">Username</label>
+                        <input type="text" id="reg-username" required class="w-full bg-[#07090e] border border-gray-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-green-500 transition" placeholder="Enter unique username">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1">Email Address</label>
+                        <input type="email" id="reg-email" required class="w-full bg-[#07090e] border border-gray-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-green-500 transition" placeholder="name@example.com">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1">Password Credentials</label>
+                        <input type="password" id="reg-password" oninput="checkPasswordStrength(this.value)" required class="w-full bg-[#07090e] border border-gray-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-green-500 transition" placeholder="••••••••">
+                        <div class="mt-2 text-xs space-y-1 bg-[#07090e]/80 p-3 rounded-xl border border-gray-800/80">
+                            <p id="check-letter" class="text-red-400 font-medium">❌ At least 1 letter</p>
+                            <p id="check-number" class="text-red-400 font-medium">❌ At least 1 number</p>
+                            <p id="check-special" class="text-red-400 font-medium">❌ At least 1 special character</p>
+                            <p id="check-length" class="text-red-400 font-medium">❌ Minimum 8 characters</p>
+                        </div>
+                    </div>
+                    <button type="submit" id="send-otp-btn" class="w-full btn-professional text-black font-black py-3.5 rounded-xl transition shadow-lg text-sm tracking-wide uppercase">Send Verification OTP</button>
+                </form>
+
+                <form id="reg-otp-form" onsubmit="handleVerifyOtp(event)" class="space-y-4 hidden mt-4">
+                    <div class="bg-green-500/10 border border-green-500/30 p-3 rounded-xl text-center">
+                        <p class="text-xs text-green-400 font-semibold">🔒 Secure OTP has been dispatched to your primary inbox.</p>
+                    </div>
+                    <input type="text" id="reg-otp-input" required maxlength="4" class="w-full bg-[#07090e] border border-gray-800 rounded-xl p-3.5 text-white text-center text-2xl tracking-[1rem] font-mono focus:outline-none focus:border-green-500 transition" placeholder="••••">
+                    <button type="submit" class="w-full btn-professional text-black font-black py-3.5 rounded-xl transition shadow-lg text-sm tracking-wide uppercase">Verify & Initialize Account</button>
+                    
+                    <div class="flex justify-between items-center pt-2 text-xs">
+                        <button type="button" id="resend-otp-btn" onclick="handleResendOtp()" class="text-green-400 hover:underline font-bold disabled:text-gray-600">Resend Code</button>
+                        <button type="button" onclick="handleBackToRegisterForm()" class="text-gray-400 hover:text-white underline">Edit Details</button>
+                    </div>
+                </form>
+                <p class="text-center text-xs text-gray-400 mt-6">Already registered? <button type="button" onclick="showSection('login-section')" class="text-green-400 font-bold hover:underline bg-transparent border-none cursor-pointer">Access Terminal (Login)</button></p>
+            </div>
+
+            <!-- 2. LOGIN SECTION -->
+            <div id="login-section" class="w-full crypto-card p-6 md:p-8 rounded-2xl hidden">
+                <div class="text-center mb-6">
+                    <span class="text-xs uppercase tracking-widest text-green-500 font-bold">Authentication</span>
+                    <h2 class="text-2xl md:text-3xl font-black text-white mt-1">Welcome Back</h2>
+                </div>
+                <form onsubmit="handleLogin(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1">Registered Email</label>
+                        <input type="email" id="login-email" required class="w-full bg-[#07090e] border border-gray-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-green-500 transition" placeholder="name@example.com">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1">Password Key</label>
+                        <input type="password" id="login-password" required class="w-full bg-[#07090e] border border-gray-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-green-500 transition" placeholder="••••••••">
+                    </div>
+                    <div class="text-right">
+                        <button type="button" onclick="showSection('forgot-section')" class="text-xs text-green-400 font-semibold hover:underline bg-transparent border-none cursor-pointer">Recover Password?</button>
+                    </div>
+                    <button type="submit" class="w-full btn-professional text-black font-black py-3.5 rounded-xl transition shadow-lg text-sm tracking-wide uppercase">Authenticate Terminal</button>
+                </form>
+                <p class="text-center text-xs text-gray-400 mt-6">New user node? <button type="button" onclick="showSection('register-section')" class="text-green-400 font-bold hover:underline bg-transparent border-none cursor-pointer">Create Account</button></p>
+            </div>
+
+            <!-- FORGOT PASSWORD SECTION -->
+            <div id="forgot-section" class="w-full crypto-card p-6 md:p-8 rounded-2xl hidden">
+                <div class="text-center mb-6">
+                    <span class="text-xs uppercase tracking-widest text-green-500 font-bold">Security Recovery</span>
+                    <h2 class="text-2xl md:text-3xl font-black text-white mt-1">Password Reset</h2>
+                </div>
+                <form id="forgot-email-form" onsubmit="handleSendForgotOtp(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1">Account Email</label>
+                        <input type="email" id="forgot-email" required class="w-full bg-[#07090e] border border-gray-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-green-500 transition" placeholder="name@example.com">
+                    </div>
+                    <button type="submit" class="w-full btn-professional text-black font-black py-3.5 rounded-xl transition shadow-lg text-sm tracking-wide uppercase">Send Recovery OTP</button>
+                </form>
+                <form id="forgot-reset-form" onsubmit="handleVerifyAndReset(event)" class="space-y-4 hidden">
+                    <div class="bg-green-500/10 border border-green-500/30 p-3 rounded-xl text-center">
+                        <p class="text-xs text-green-400 font-semibold">🔑 Reset code verified. Provide new credentials.</p>
+                    </div>
+                    <div>
+                        <label class="block text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1">Enter OTP Code</label>
+                        <input type="text" id="forgot-otp-input" required maxlength="4" class="w-full bg-[#07090e] border border-gray-800 rounded-xl p-3 text-white text-center tracking-[0.5em] font-mono focus:outline-none focus:border-green-500" placeholder="••••">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1">New Secure Password</label>
+                        <input type="password" id="new-password-input" required class="w-full bg-[#07090e] border border-gray-800 rounded-xl p-3 text-white focus:outline-none focus:border-green-500" placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="w-full btn-professional text-black font-black py-3.5 rounded-xl transition shadow-lg text-sm tracking-wide uppercase">Update Security Key</button>
+                </form>
+                <p class="text-center text-xs text-gray-400 mt-6"><button type="button" onclick="showSection('login-section')" class="text-green-400 font-bold hover:underline bg-transparent border-none cursor-pointer">Return to Terminal Login</button></p>
+            </div>
+
+            <!-- 3. DASHBOARD SECTION -->
+            <div id="dashboard-section" class="w-full crypto-card p-6 md:p-8 rounded-2xl hidden">
+                <div class="flex justify-between items-center mb-6 border-b border-gray-800/80 pb-4">
+                    <div>
+                        <span class="text-[10px] uppercase tracking-wider text-gray-400 font-semibold">Active Operator</span>
+                        <p id="user-display-name" class="font-black text-base md:text-lg text-green-400"></p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-[10px] uppercase tracking-wider text-gray-400 font-semibold">ID</span>
+                        <p id="user-display-id" class="text-xs font-mono text-green-300 font-bold"></p>
+                    </div>
+                </div>
+
+                <div class="bg-[#07090e] border border-green-500/30 p-6 rounded-2xl mb-6 text-center shadow-inner relative overflow-hidden">
+                    <div class="absolute -right-10 -bottom-10 w-32 h-32 bg-green-500/5 rounded-full blur-2xl"></div>
+                    <p class="text-xs text-gray-400 uppercase tracking-widest font-semibold">Total Portfolio Assets</p>
+                    <h2 id="wallet-balance" class="text-3xl md:text-4xl font-black text-green-400 mt-2 tracking-tight">0.00 USDTX</h2>
+                    <button onclick="toggleWalletModal(true)" class="mt-4 bg-green-500/10 hover:bg-green-500/20 text-green-400 border border-green-500/30 px-4 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-2 shadow-sm">
+                        <span>👛</span> Wallet
+                    </button>
+                </div>
+
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="text-sm font-bold text-white uppercase tracking-wider">Milestone Tasks</h3>
+                    <span id="reset-status" class="text-[11px] text-yellow-400 font-mono bg-yellow-500/10 px-2 py-0.5 rounded border border-yellow-500/20">Cycle Reset 24h</span>
+                </div>
+                <div class="space-y-3.5" id="tasks-container"></div>
+            </div>
+
+        </div>
+
+        <!-- Leaderboard & Professional Hub -->
+        <div class="w-full lg:w-80 crypto-card p-5 rounded-2xl space-y-4">
+            <div>
+                <h3 class="text-xs font-extrabold text-green-400 uppercase tracking-wider mb-3 border-b border-gray-800/80 pb-2.5 flex items-center justify-between">
+                    <span>🏆 Leaderboard Rank</span>
+                    <span class="text-[10px] text-gray-500 font-mono">Live</span>
+                </h3>
+                <div id="leaderboard-list" class="space-y-2 max-h-[220px] overflow-y-auto pr-1"></div>
+            </div>
+
+            <!-- Professional Action Hub -->
+            <div class="bg-[#07090e] p-4 rounded-xl border border-green-500/20 text-center space-y-2">
+                <span class="text-xl">🔗</span>
+                <h4 class="font-bold text-xs text-white uppercase tracking-wide">Affiliate Network</h4>
+                <p class="text-[11px] text-gray-400 leading-relaxed">Broadcast network link & secure 1% perpetual commission.</p>
+                <button onclick="handleSharePlatform()" class="w-full btn-professional text-black font-extrabold py-2.5 rounded-xl text-xs uppercase tracking-wider shadow-md">Broadcast Link</button>
+            </div>
+            
+            <div class="bg-[#07090e] p-4 rounded-xl border border-gray-800 text-center">
+                <span class="text-xl">📢</span>
+                <h4 class="font-bold text-xs text-white uppercase tracking-wide mt-1">Official Broadcast</h4>
+                <p class="text-[11px] text-gray-400 mt-0.5">Access official channel intelligence & updates.</p>
+                <a href="https://t.me/usdtxnetwork" target="_blank" class="mt-2.5 block bg-green-500/10 hover:bg-green-500/20 text-green-400 border border-green-500/30 font-extrabold py-2 rounded-xl text-xs transition">Join t.me/usdtxnetwork</a>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- WALLET, WITHDRAWAL & P2P TRANSFER MODAL -->
+    <div id="wallet-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="crypto-card w-full max-w-lg p-6 md:p-8 rounded-2xl shadow-2xl border border-green-500/30 relative max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-4 border-b border-gray-800/80 pb-3">
+                <h3 class="text-base font-black text-green-400 uppercase tracking-wider">👛 Wallet</h3>
+                <button onclick="toggleWalletModal(false)" class="text-gray-400 hover:text-white text-xl font-bold">&times;</button>
+            </div>
+            
+            <div class="space-y-4 text-xs">
+                <div class="bg-[#07090e] p-4 rounded-xl border border-gray-800">
+                    <p class="text-gray-400 uppercase text-[10px] mb-2 font-bold tracking-wider">Your Unique Wallet Address</p>
+                    <div class="flex gap-2 mb-3">
+                        <input type="text" id="my-wallet-address" readonly class="w-full bg-black/50 border border-gray-800 rounded-xl p-2.5 text-xs text-green-300 font-mono">
+                        <button onclick="copyMyWalletAddress()" class="btn-professional text-black font-extrabold px-3.5 py-2.5 rounded-xl text-xs uppercase tracking-wider transition">Copy</button>
+                    </div>
+                    <p class="text-gray-400 uppercase text-[10px] mb-2 font-bold tracking-wider">Earnings Breakdown</p>
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <span class="font-semibold text-gray-300">⚡ Milestone Rewards:</span>
+                            <span id="wallet-usdtx-val" class="font-mono text-green-400 font-bold">0.00 USDTX</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-semibold text-gray-300">🤝 Referral Commissions:</span>
+                            <span id="wallet-ref-val" class="font-mono text-green-400 font-bold">0.00 USDTX</span>
+                        </div>
+                        <div class="border-t border-gray-800 pt-2 flex justify-between items-center">
+                            <span class="font-black text-white">Total Available Balance:</span>
+                            <span id="wallet-total-val" class="font-mono text-green-400 font-black text-sm">0.00 USDTX</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- P2P COIN TRANSFER SECTION -->
+                <div class="bg-[#07090e] p-4 rounded-xl border border-green-500/30">
+                    <h4 class="font-bold text-green-400 text-xs uppercase tracking-wider mb-2 flex items-center gap-1.5"><span>💸</span> P2P Coin Transfer</h4>
+                    <p class="text-gray-400 text-[11px] leading-relaxed mb-3">Transfer USDTX coins instantly to any user by entering their unique wallet address.</p>
+                    
+                    <form onsubmit="handleP2PTransfer(event)" class="space-y-2.5">
+                        <input type="text" id="p2p-recipient-address" required placeholder="Enter wallet address" class="w-full bg-black/50 border border-gray-800 rounded-xl p-2.5 text-xs text-white font-mono focus:outline-none focus:border-green-500">
+                        <input type="number" step="0.01" min="0.1" id="p2p-transfer-amount" required placeholder="Amount to Transfer (USDTX)" class="w-full bg-black/50 border border-gray-800 rounded-xl p-2.5 text-xs text-white font-mono focus:outline-none focus:border-green-500">
+                        <button type="submit" class="w-full btn-professional text-black font-black py-2.5 rounded-xl text-xs uppercase tracking-wider transition shadow-md">Transfer Coins Now</button>
+                    </form>
+                </div>
+
+                <div class="bg-[#07090e] p-4 rounded-xl border border-yellow-500/30">
+                    <div class="flex items-center justify-between mb-2">
+                        <h4 class="font-bold text-yellow-400 text-xs uppercase tracking-wider flex items-center gap-1.5"><span>🔒</span> Mainnet Withdrawal Gateway</h4>
+                        <span class="bg-yellow-500/20 text-yellow-300 text-[10px] px-2 py-0.5 rounded font-mono font-bold">Airdrop Locked</span>
+                    </div>
+                    <p class="text-gray-400 text-[11px] leading-relaxed mb-3">Mainnet external withdrawals are restricted during pre-launch. Use P2P Transfer above for internal circulation.</p>
+                    
+                    <div class="space-y-2">
+                        <input type="text" placeholder="TRC20 / BEP20 Mainnet Address" disabled class="w-full bg-black/50 border border-gray-800 rounded-xl p-2.5 text-xs text-gray-600 cursor-not-allowed">
+                        <button disabled class="w-full bg-gray-800 text-gray-500 font-bold py-2.5 rounded-xl text-xs uppercase tracking-wider cursor-not-allowed">Mainnet Gateway Locked</button>
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="toggleWalletModal(false)" class="w-full mt-5 btn-professional text-black font-black py-2.5 rounded-xl text-xs uppercase tracking-wider transition shadow-md">Close Vault</button>
+        </div>
+    </div>
+
+    <!-- LIVE SUPPORT CHATBOT WIDGET -->
+    <div class="fixed bottom-5 right-5 z-50">
+        <button onclick="toggleChatWindow()" id="chat-toggle-btn" class="btn-professional text-black font-bold p-3.5 rounded-full shadow-2xl flex items-center justify-center transition transform hover:scale-105 text-lg">
+            💬
+        </button>
+
+        <div id="chat-window" class="crypto-card w-80 sm:w-96 h-[400px] rounded-2xl shadow-2xl flex flex-col justify-between hidden border border-green-500/30">
+            <div class="bg-[#0b0f19] p-3.5 border-b border-gray-800 flex justify-between items-center rounded-t-2xl">
+                <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse"></span>
+                    <h3 class="font-bold text-xs text-green-400 uppercase tracking-wider">USDTX Secure Support</h3>
+                </div>
+                <button onclick="toggleChatWindow()" class="text-gray-400 hover:text-white font-bold text-base">&times;</button>
+            </div>
+            
+            <div id="chat-messages" class="p-3.5 flex-grow overflow-y-auto space-y-2.5 text-xs">
+                <div class="bg-[#07090e] p-3 rounded-xl border border-gray-800 text-gray-300 max-w-[85%] leading-relaxed">
+                    👋 Welcome operator. Connect with our official intelligence channel <a href="https://t.me/usdtxnetwork" target="_blank" class="text-green-400 underline font-semibold">t.me/usdtxnetwork</a> for assistance.
+                </div>
+            </div>
+
+            <div class="p-2.5 bg-[#0b0f19] border-t border-gray-800 flex gap-2 rounded-b-2xl">
+                <input type="text" id="chat-input" onkeypress="handleChatKey(event)" placeholder="Type inquiry..." class="flex-grow bg-[#07090e] border border-gray-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-green-500">
+                <button onclick="sendChatMessage()" class="btn-professional text-black font-bold px-3.5 py-2 rounded-xl text-xs uppercase tracking-wider transition">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Website Information Modal -->
+    <div id="info-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="crypto-card w-full max-w-md p-6 rounded-2xl shadow-2xl border border-green-500/30 relative">
+            <div class="flex justify-between items-center mb-4 border-b border-gray-800 pb-3">
+                <h3 class="text-base font-black text-green-400 uppercase tracking-wider">📊 Terminal Specifications</h3>
+                <button onclick="toggleInfoModal(false)" class="text-gray-400 hover:text-white text-xl font-bold">&times;</button>
+            </div>
+            <div class="space-y-3 text-xs text-gray-300 max-h-[300px] overflow-y-auto pr-1 leading-relaxed">
+                <p><strong>Professional Crypto Node System</strong></p>
+                <p>This decentralized platform rewards verified participants for executing daily validation tasks and expanding the network.</p>
+                <p class="font-bold text-green-400 mt-1">Core Protocols:</p>
+                <ul class="list-disc pl-4 space-y-1 text-gray-400">
+                    <li><strong>Direct Inbox OTP:</strong> Secure cryptographic email verification.</li>
+                    <li><strong>P2P Coin Transfer:</strong> Instantly transfer USDTX tokens via unique user wallet addresses.</li>
+                    <li><strong>Task Execution:</strong> Complete daily tasks (1 to 5) to accumulate USDTX portfolio.</li>
+                </ul>
+            </div>
+            <button onclick="toggleInfoModal(false)" class="w-full mt-5 btn-professional text-black font-black py-2.5 rounded-xl text-xs uppercase tracking-wider transition shadow-md">Understood</button>
+        </div>
+    </div>
+
+    <!-- Refer & Earn Modal -->
+    <div id="refer-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="crypto-card w-full max-w-md p-6 rounded-2xl shadow-2xl border border-green-500/30 relative">
+            <div class="flex justify-between items-center mb-4 border-b border-gray-800 pb-3">
+                <h3 class="text-base font-black text-green-400 uppercase tracking-wider">🤝 Affiliate Network Hub</h3>
+                <button onclick="toggleReferModal(false)" class="text-gray-400 hover:text-white text-xl font-bold">&times;</button>
+            </div>
+            <div class="space-y-4 text-xs text-gray-300 leading-relaxed">
+                <p>Distribute your unique node invitation link. Earn a <strong class="text-green-400 font-bold">1% perpetual commission</strong> on all peer task outputs.</p>
+                <div>
+                    <label class="block text-gray-400 uppercase text-[10px] mb-1 font-bold">Unique Node Link</label>
+                    <div class="flex gap-2">
+                        <input type="text" id="referral-link-input" readonly class="w-full bg-[#07090e] border border-gray-800 rounded-xl p-2.5 text-xs text-green-300 font-mono">
+                        <button onclick="copyReferralLink()" class="btn-professional text-black font-extrabold px-3.5 py-2.5 rounded-xl text-xs uppercase tracking-wider transition">Copy</button>
+                    </div>
+                </div>
+                <div class="bg-[#07090e] p-3 rounded-xl border border-gray-800 text-center">
+                    <span class="text-gray-400 text-[10px] uppercase font-semibold">Total Commission Acquired</span>
+                    <p id="referral-earnings" class="text-base font-black text-green-400 mt-0.5 font-mono">0.00 USDTX</p>
+                </div>
+            </div>
+            <button onclick="toggleReferModal(false)" class="w-full mt-5 btn-professional text-black font-black py-2.5 rounded-xl text-xs uppercase tracking-wider transition shadow-md">Close Hub</button>
+        </div>
+    </div>
+
+    <!-- Profile Drawer -->
+    <div id="profile-drawer" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex justify-start">
+        <div class="crypto-card w-80 h-full p-6 shadow-2xl border-r border-green-500/30 flex flex-col justify-between overflow-y-auto">
+            <div>
+                <div class="flex justify-between items-center mb-6 border-b border-gray-800 pb-3">
+                    <h3 class="text-base font-black text-green-400 uppercase tracking-wider">Operator Profile</h3>
+                    <button onclick="toggleProfileDrawer(false)" class="text-gray-400 text-xl font-bold">&times;</button>
+                </div>
+                
+                <div class="text-center mb-4 bg-[#07090e] p-3 rounded-xl border border-gray-800">
+                    <div class="w-14 h-14 mx-auto rounded-full bg-gray-800 overflow-hidden mb-2 flex items-center justify-center border border-gray-700">
+                        <img id="profile-pic-preview" src="" class="w-full h-full object-cover hidden">
+                        <span id="profile-pic-placeholder" class="text-xl">👤</span>
+                    </div>
+                    <label class="bg-gray-800 hover:bg-gray-700 text-green-400 px-3 py-1 rounded-lg text-[11px] cursor-pointer inline-block border border-gray-700 font-semibold transition">
+                        Update Avatar <input type="file" accept="image/*" onchange="handleProfilePicUpload(event)" class="hidden">
+                    </label>
+                </div>
+
+                <div class="space-y-2.5 bg-[#07090e] p-3.5 rounded-xl text-xs border border-gray-800 leading-relaxed">
+                    <div>
+                        <span class="text-gray-500 uppercase text-[9px] font-bold">Operator Name</span>
+                        <div class="flex justify-between items-center mt-0.5">
+                            <strong id="profile-modal-name" class="text-white text-sm font-bold"></strong>
+                            <button onclick="toggleEditName(true)" class="text-green-400 hover:underline text-[10px] font-semibold">Edit</button>
+                        </div>
+                        <div id="name-edit-view" class="hidden mt-2 space-y-1.5">
+                            <input type="text" id="edit-username" class="w-full bg-black/50 border border-gray-700 p-1.5 rounded text-xs text-white" placeholder="New operator name">
+                            <div class="flex gap-1">
+                                <button onclick="saveProfileName()" class="btn-professional text-black font-bold px-2.5 py-1 rounded text-[10px] uppercase">Save</button>
+                                <button onclick="toggleEditName(false)" class="bg-gray-700 text-white px-2 py-1 rounded text-[10px]">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400">ID: <strong id="profile-modal-id" class="text-green-300 font-mono font-bold"></strong></p>
+                    <p class="text-gray-400 truncate">Email: <strong id="profile-modal-email" class="text-white font-mono"></strong></p>
+                </div>
+
+                <div class="space-y-2 mt-4">
+                    <button onclick="toggleWalletModal(true)" class="w-full bg-[#07090e] hover:bg-gray-800/80 text-green-400 border border-green-500/20 font-bold p-2.5 rounded-xl text-xs transition flex items-center justify-center gap-2 shadow-sm">
+                        <span>👛</span> Wallet
+                    </button>
+                    <button onclick="toggleReferModal(true)" class="w-full bg-[#07090e] hover:bg-gray-800/80 text-green-400 border border-green-500/20 font-bold p-2.5 rounded-xl text-xs transition flex items-center justify-center gap-2 shadow-sm">
+                        <span>🤝</span> Affiliate Network Hub
+                    </button>
+                    <button onclick="handleSharePlatform()" class="w-full bg-[#07090e] hover:bg-gray-800/80 text-green-400 border border-green-500/20 font-bold p-2.5 rounded-xl text-xs transition flex items-center justify-center gap-2 shadow-sm">
+                        <span>🔗</span> Broadcast Platform Link
+                    </button>
+                    <a href="https://t.me/usdtxnetwork" target="_blank" class="w-full bg-[#07090e] hover:bg-gray-800/80 text-green-400 border border-green-500/20 font-bold p-2.5 rounded-xl text-xs transition flex items-center justify-center gap-2 shadow-sm">
+                        <span>📢</span> Join Telegram Intelligence
+                    </a>
+                    <button onclick="toggleInfoModal(true)" class="w-full bg-[#07090e] hover:bg-gray-800/80 text-green-400 border border-green-500/20 font-bold p-2.5 rounded-xl text-xs transition flex items-center justify-center gap-2 shadow-sm">
+                        <span>📊</span> Terminal Documentation
+                    </button>
+                </div>
+
+                <div class="bg-[#07090e] p-3.5 rounded-xl mt-4 border border-gray-800">
+                    <h4 class="text-[11px] font-bold text-green-400 uppercase tracking-wider mb-2">Modify Security Credentials</h4>
+                    <form onsubmit="handleChangePassword(event)" class="space-y-2">
+                        <input type="password" id="old-pass" required placeholder="Current Password" class="w-full bg-black/50 border border-gray-800 p-2 rounded text-xs text-white focus:outline-none focus:border-green-500">
+                        <input type="password" id="new-pass" required placeholder="New Password" class="w-full bg-black/50 border border-gray-800 p-2 rounded text-xs text-white focus:outline-none focus:border-green-500">
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white p-2 rounded text-xs font-bold uppercase tracking-wider transition shadow-sm">Update Password</button>
+                    </form>
+                </div>
+            </div>
+            <button onclick="handleLogout()" class="w-full bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/30 font-bold p-2.5 rounded-xl mt-4 text-xs uppercase tracking-wider transition">Terminate Session (Logout)</button>
+        </div>
+    </div>
+
+    <script>
+        let currentUser = JSON.parse(localStorage.getItem('usdtx_current_user')) || null;
+        const taskRewards = { 1: 1.00, 2: 1.20, 3: 1.40, 4: 1.60, 5: 1.80, 6: 2.50, 7: 3.00 };
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const refId = urlParams.get('ref');
+            if (refId) {
+                localStorage.setItem('usdtx_pending_ref', refId);
+            }
+            
+            const pwdInput = document.getElementById('reg-password');
+            if (pwdInput) {
+                pwdInput.addEventListener('input', function() {
+                    checkPasswordStrength(this.value);
+                });
+            }
+
+            initApp();
+        });
+
+        function checkPasswordStrength(p) {
+            const hasLetter = /[a-zA-Z]/.test(p);
+            const hasNumber = /[0-9]/.test(p);
+            const hasSpecial = /[\W_]/.test(p);
+            const minLength = p.length >= 8;
+
+            updateCheckItem('check-letter', hasLetter, 'At least 1 letter');
+            updateCheckItem('check-number', hasNumber, 'At least 1 number');
+            updateCheckItem('check-special', hasSpecial, 'At least 1 special character');
+            updateCheckItem('check-length', minLength, 'Minimum 8 characters');
+        }
+
+        function updateCheckItem(elementId, isValid, text) {
+            const el = document.getElementById(elementId);
+            if (el) {
+                if (isValid) {
+                    el.className = "text-green-400 font-medium";
+                    el.innerText = `✔ ${text}`;
+                } else {
+                    el.className = "text-red-400 font-medium";
+                    el.innerText = `❌ ${text}`;
+                }
+            }
+        }
+
+        function toggleWalletModal(show) {
+            const modal = document.getElementById('wallet-modal');
+            if (show) {
+                toggleProfileDrawer(false);
+                const taskEarnings = currentUser.balance - (currentUser.referralEarnings || 0);
+                const walletAddress = "0xUSDTX" + currentUser.userId + "NET";
+                document.getElementById('my-wallet-address').value = walletAddress;
+                document.getElementById('wallet-usdtx-val').innerText = taskEarnings.toFixed(2) + " USDTX";
+                document.getElementById('wallet-ref-val').innerText = (currentUser.referralEarnings || 0).toFixed(2) + " USDTX";
+                document.getElementById('wallet-total-val').innerText = currentUser.balance.toFixed(2) + " USDTX";
+                modal.classList.remove('hidden');
+            } else {
+                modal.classList.add('hidden');
+            }
+        }
+
+        function copyMyWalletAddress() {
+            const input = document.getElementById('my-wallet-address');
+            input.select();
+            input.setSelectionRange(0, 99999);
+            
+            try {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(input.value).then(() => {
+                        alert("Your unique wallet address copied to clipboard!");
+                    }).catch(() => {
+                        document.execCommand('copy');
+                        alert("Your unique wallet address copied to clipboard!");
+                    });
+                } else {
+                    document.execCommand('copy');
+                    alert("Your unique wallet address copied to clipboard!");
+                }
+            } catch (err) {
+                alert("Failed to copy address. Please select and copy manually.");
+            }
+        }
+
+        async function handleP2PTransfer(e) {
+            e.preventDefault();
+            const recipientAddress = document.getElementById('p2p-recipient-address').value.trim();
+            const amount = parseFloat(document.getElementById('p2p-transfer-amount').value);
+
+            const myWalletAddress = "0xUSDTX" + currentUser.userId + "NET";
+            if (recipientAddress === myWalletAddress) {
+                alert("Transfer Error: You cannot transfer coins to your own wallet address.");
+                return;
+            }
+
+            if (amount <= 0 || isNaN(amount)) {
+                alert("Transfer Error: Please enter a valid transfer amount.");
+                return;
+            }
+
+            if (currentUser.balance < amount) {
+                alert("Transfer Error: Insufficient available balance in your vault.");
+                return;
+            }
+
+            try {
+                let usersSnapshot = await db.collection('users').get();
+                let recipientDoc = null;
+                let recipientData = null;
+
+                usersSnapshot.forEach(doc => {
+                    let uData = doc.data();
+                    let uWallet = "0xUSDTX" + uData.userId + "NET";
+                    if (uWallet === recipientAddress) {
+                        recipientDoc = doc;
+                        recipientData = uData;
+                    }
+                });
+
+                if (!recipientDoc) {
+                    alert("Transfer Error: Recipient wallet address not found in network database.");
+                    return;
+                }
+
+                currentUser.balance -= amount;
+                await db.collection('users').doc(currentUser.email).set(currentUser);
+                localStorage.setItem('usdtx_current_user', JSON.stringify(currentUser));
+
+                let newRecipientBalance = (recipientData.balance || 0) + amount;
+                await db.collection('users').doc(recipientData.email).update({
+                    balance: newRecipientBalance
+                });
+
+                alert(`Successfully transferred ${amount.toFixed(2)} USDTX to address ${recipientAddress}!`);
+                document.getElementById('p2p-recipient-address').value = '';
+                document.getElementById('p2p-transfer-amount').value = '';
+                toggleWalletModal(false);
+                initApp();
+
+            } catch (err) {
+                alert("P2P Transfer Error: " + err.message);
+            }
+        }
+
+        function toggleReferModal(show) {
+            const modal = document.getElementById('refer-modal');
+            if (show) {
+                toggleProfileDrawer(false);
+                const refLink = "http://usdtx.sbs/?ref=" + currentUser.userId;
+                document.getElementById('referral-link-input').value = refLink;
+                document.getElementById('referral-earnings').innerText = (currentUser.referralEarnings || 0).toFixed(2) + " USDTX";
+                modal.classList.remove('hidden');
+            } else {
+                modal.classList.add('hidden');
+            }
+        }
+
+        function copyReferralLink() {
+            const input = document.getElementById('referral-link-input');
+            input.select();
+            input.setSelectionRange(0, 99999);
+            try {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(input.value).then(() => {
+                        alert("Affiliate node link copied to clipboard!");
+                    }).catch(() => {
+                        document.execCommand('copy');
+                        alert("Affiliate node link copied to clipboard!");
+                    });
+                } else {
+                    document.execCommand('copy');
+                    alert("Affiliate node link copied to clipboard!");
+                }
+            } catch (err) {
+                alert("Failed to copy link.");
+            }
+        }
+
+        function handleSharePlatform() {
+            const shareUrl = currentUser ? "http://usdtx.sbs/?ref=" + currentUser.userId : "http://usdtx.sbs/";
+            const shareText = "Join USDTX Network - Professional Crypto Earning Platform & Earn Rewards! Join here: " + shareUrl;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'USDTX Network',
+                    text: shareText,
+                    url: shareUrl,
+                }).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(shareUrl);
+                alert("Platform link copied to clipboard!");
+            }
+        }
+
+        function toggleInfoModal(show) {
+            const modal = document.getElementById('info-modal');
+            if (show) {
+                toggleProfileDrawer(false);
+                modal.classList.remove('hidden');
+            } else {
+                modal.classList.add('hidden');
+            }
+        }
+
+        function toggleChatWindow() {
+            const win = document.getElementById('chat-window');
+            const btn = document.getElementById('chat-toggle-btn');
+            if (win.classList.contains('hidden')) {
+                win.classList.remove('hidden');
+                btn.classList.add('hidden');
+            } else {
+                win.classList.add('hidden');
+                btn.classList.remove('hidden');
+            }
+        }
+
+        function handleChatKey(e) {
+            if (e.key === 'Enter') sendChatMessage();
+        }
+
+        function sendChatMessage() {
+            const input = document.getElementById('chat-input');
+            const msg = input.value.trim();
+            if (!msg) return;
+
+            const container = document.getElementById('chat-messages');
+            const userDiv = document.createElement('div');
+            userDiv.className = "bg-green-500/20 border border-green-500/30 p-2.5 rounded-xl text-green-300 max-w-[85%] ml-auto text-right font-medium";
+            userDiv.innerText = msg;
+            container.appendChild(userDiv);
+            input.value = "";
+            container.scrollTop = container.scrollHeight;
+
+            setTimeout(() => {
+                const botDiv = document.createElement('div');
+                botDiv.className = "bg-[#07090e] p-2.5 rounded-xl border border-gray-800 text-gray-300 max-w-[85%] leading-relaxed";
+                botDiv.innerHTML = "🤖 Secure Support: Access intelligence channel <a href='https://t.me/usdtxnetwork' target='_blank' class='text-green-400 underline font-bold'>t.me/usdtxnetwork</a>.";
+                container.appendChild(botDiv);
+                container.scrollTop = container.scrollHeight;
+            }, 800);
+        }
+
+        function checkDailyReset() {
+            if (!currentUser) return;
+            const today = new Date().toDateString();
+            if (currentUser.lastReset !== today) {
+                if (!currentUser.oneTimeTasks) currentUser.oneTimeTasks = [];
+                currentUser.completedTasks = currentUser.completedTasks.filter(id => id === 6 || id === 7);
+                currentUser.lastReset = today;
+                saveUserData();
+            }
+        }
+
+        function validatePassword(p) {
+            const minLength = p.length >= 8;
+            const hasLetter = /[a-zA-Z]/.test(p);
+            const hasNumber = /[0-9]/.test(p);
+            const hasSpecial = /[\W_]/.test(p);
+
+            if (!minLength || !hasLetter || !hasNumber || !hasSpecial) {
+                alert("Security Error: Password must be minimum 8 characters, include a letter, number, and special symbol.");
+                return false;
+            }
+            return true;
+        }
+
+        async function initApp() {
+            if (currentUser && currentUser.email) {
+                try {
+                    let docRef = db.collection('users').doc(currentUser.email);
+                    let doc = await docRef.get();
+                    if (doc.exists) {
+                        currentUser = doc.data();
+                        localStorage.setItem('usdtx_current_user', JSON.stringify(currentUser));
+                    }
+                } catch (e) {
+                    console.error("Cloud synchronization error:", e);
+                }
+
+                if (!currentUser.completedTasks) currentUser.completedTasks = [];
+                if (!currentUser.oneTimeTasks) currentUser.oneTimeTasks = [];
+                if (currentUser.referralEarnings === undefined) currentUser.referralEarnings = 0.0;
+                
+                checkDailyReset();
+                showSection('dashboard-section');
+                updateDashboard();
+                document.getElementById('nav-profile-btn').classList.remove('hidden');
+            } else {
+                showSection('register-section');
+                document.getElementById('nav-profile-btn').classList.add('hidden');
+            }
+            fetchLeaderboardFromCloud();
+            updateGlobalBackButton();
+        }
+
+        function showSection(id) {
+            ['register-section', 'login-section', 'forgot-section', 'dashboard-section'].forEach(s => {
+                const el = document.getElementById(s);
+                if (el) el.classList.add('hidden');
+            });
+            const target = document.getElementById(id);
+            if (target) target.classList.remove('hidden');
+            
+            if(id === 'forgot-section') {
+                const fEmail = document.getElementById('forgot-email-form');
+                const fReset = document.getElementById('forgot-reset-form');
+                if(fEmail) fEmail.classList.remove('hidden');
+                if(fReset) fReset.classList.add('hidden');
+            }
+            updateGlobalBackButton();
+        }
+
+        function updateGlobalBackButton() {
+            const backBtn = document.getElementById('global-back-btn');
+            if(!backBtn) return;
+
+            const dashboardSec = document.getElementById('dashboard-section');
+            if (dashboardSec && !dashboardSec.classList.contains('hidden')) {
+                backBtn.classList.add('hidden');
+                return;
+            }
+
+            const regOtpForm = document.getElementById('reg-otp-form');
+            const forgotResetForm = document.getElementById('forgot-reset-form');
+            const loginSec = document.getElementById('login-section');
+            const forgotSec = document.getElementById('forgot-section');
+
+            const isOtpStep = regOtpForm && !regOtpForm.classList.contains('hidden');
+            const isForgotResetStep = forgotResetForm && !forgotResetForm.classList.contains('hidden');
+            const isLogin = loginSec && !loginSec.classList.contains('hidden');
+            const isForgot = forgotSec && !forgotSec.classList.contains('hidden');
+
+            if (isOtpStep || isForgotResetStep || isLogin || isForgot) {
+                backBtn.classList.remove('hidden');
+            } else {
+                backBtn.classList.add('hidden');
+            }
+        }
+
+        function handleGlobalBack() {
+            const regOtpForm = document.getElementById('reg-otp-form');
+            const forgotResetForm = document.getElementById('forgot-reset-form');
+            const loginSec = document.getElementById('login-section');
+            const forgotSec = document.getElementById('forgot-section');
+
+            const isOtpStep = regOtpForm && !regOtpForm.classList.contains('hidden');
+            const isForgotResetStep = forgotResetForm && !forgotResetForm.classList.contains('hidden');
+            const isLogin = loginSec && !loginSec.classList.contains('hidden');
+            const isForgot = forgotSec && !forgotSec.classList.contains('hidden');
+
+            if (isOtpStep) {
+                handleBackToRegisterForm();
+            } else if (isForgotResetStep) {
+                if(forgotResetForm) forgotResetForm.classList.add('hidden');
+                const fEmail = document.getElementById('forgot-email-form');
+                if(fEmail) fEmail.classList.remove('hidden');
+                updateGlobalBackButton();
+            } else if (isLogin || isForgot) {
+                showSection('register-section');
+            }
+        }
+
+        let generatedOtp = "", tempRegData = {};
+        
+        function handleSendRealOtp(e) {
+            e.preventDefault();
+            const username = document.getElementById('reg-username').value.trim();
+            const email = document.getElementById('reg-email').value.trim();
+            const password = document.getElementById('reg-password').value;
+            
+            const hasLetter = /[a-zA-Z]/.test(password);
+            const hasNumber = /[0-9]/.test(password);
+            const hasSpecial = /[\W_]/.test(password);
+            const minLength = password.length >= 8;
+
+            if (!minLength || !hasLetter || !hasNumber || !hasSpecial) {
+                alert("Security Error: Password must be at least 8 characters long and include a letter, number, and special character.");
+                return;
+            }
+
+            db.collection('users').doc(email).get().then(doc => {
+                if (doc.exists) {
+                    alert("Registry Error: Email address already registered.");
+                    return;
+                }
+
+                generatedOtp = Math.floor(1000 + Math.random() * 9000).toString();
+                tempRegData = { username, email, password };
+
+                const btn = document.getElementById('send-otp-btn');
+                btn.innerText = "Dispatching OTP Code...";
+                btn.disabled = true;
+
+                const templateParams = {
+                    to_email: email,
+                    to_name: username,
+                    otp: generatedOtp,
+                    time: "10 minutes"
+                };
+
+                emailjs.send('service_zs86exl', 'template_anhjb86', templateParams)
+                    .then(function(response) {
+                        alert("Verification code successfully dispatched to inbox: " + email);
+                        document.getElementById('reg-details-form').classList.add('hidden');
+                        document.getElementById('reg-otp-form').classList.remove('hidden');
+                        updateGlobalBackButton();
+                        btn.innerText = "Send Verification OTP";
+                        btn.disabled = false;
+                    }, function(error) {
+                        alert("Email Dispatch Failed: " + JSON.stringify(error));
+                        btn.innerText = "Send Verification OTP";
+                        btn.disabled = false;
+                    });
+
+            }).catch(err => {
+                alert("Database Connectivity Error: " + err.message);
+            });
+        }
+
+        function handleResendOtp() {
+            const resendBtn = document.getElementById('resend-otp-btn');
+            resendBtn.innerText = "Resending...";
+            resendBtn.disabled = true;
+
+            generatedOtp = Math.floor(1000 + Math.random() * 9000).toString();
+
+            const templateParams = {
+                to_email: tempRegData.email,
+                to_name: tempRegData.username,
+                otp: generatedOtp,
+                time: "10 minutes"
+            };
+
+            emailjs.send('service_zs86exl', 'template_anhjb86', templateParams)
+                .then(function(response) {
+                    alert("New verification code dispatched to " + tempRegData.email);
+                    resendBtn.innerText = "Resend Code";
+                    resendBtn.disabled = false;
+                }, function(error) {
+                    alert("Resend Failed: " + JSON.stringify(error));
+                    resendBtn.innerText = "Resend Code";
+                    resendBtn.disabled = false;
+                });
+        }
+
+        function handleBackToRegisterForm() {
+            document.getElementById('reg-otp-form').classList.add('hidden');
+            document.getElementById('reg-details-form').classList.remove('hidden');
+            const btn = document.getElementById('send-otp-btn');
+            btn.innerText = "Send Verification OTP";
+            btn.disabled = false;
+            updateGlobalBackButton();
+        }
+
+        async function handleVerifyOtp(e) {
+            e.preventDefault();
+            if (document.getElementById('reg-otp-input').value.trim() !== generatedOtp) {
+                alert("Authentication Error: Invalid OTP code provided."); return;
+            }
+            const uniqueId = Math.floor(100000000000 + Math.random() * 900000000000).toString();
+            const pendingRef = localStorage.getItem('usdtx_pending_ref');
+
+            const newUser = {
+                userId: uniqueId,
+                username: tempRegData.username,
+                email: tempRegData.email,
+                password: tempRegData.password,
+                balance: 0.0,
+                completedTasks: [],
+                oneTimeTasks: [],
+                profilePic: "",
+                referredBy: pendingRef || null,
+                referralEarnings: 0.0,
+                lastReset: new Date().toDateString()
+            };
+
+            try {
+                await db.collection('users').doc(newUser.email).set(newUser);
+                localStorage.removeItem('usdtx_pending_ref');
+                currentUser = newUser;
+                localStorage.setItem('usdtx_current_user', JSON.stringify(currentUser));
+                alert("Account successfully created and synchronized with Cloud Node!");
+                initApp();
+            } catch (err) {
+                alert("Node Initialization Error: " + err.message);
+            }
+        }
+
+        async function handleLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value.trim();
+            const password = document.getElementById('login-password').value;
+
+            try {
+                let docRef = db.collection('users').doc(email);
+                let doc = await docRef.get();
+                if (doc.exists) {
+                    let user = doc.data();
+                    if (user.password === password) {
+                        if (!user.oneTimeTasks) user.oneTimeTasks = [];
+                        if (user.referralEarnings === undefined) user.referralEarnings = 0.0;
+                        currentUser = user;
+                        localStorage.setItem('usdtx_current_user', JSON.stringify(currentUser));
+                        initApp();
+                    } else {
+                        alert("Authentication Failed: Incorrect security credentials.");
+                    }
+                } else {
+                    alert("Node Error: Operator email not registered in cloud database.");
+                }
+            } catch (err) {
+                alert("Terminal Login Error: " + err.message);
+            }
+        }
+
+        let forgotTargetEmail = "", forgotOtpCode = "";
+        function handleSendForgotOtp(e) {
+            e.preventDefault();
+            const email = document.getElementById('forgot-email').value.trim();
+            
+            db.collection('users').doc(email).get().then(doc => {
+                if (!doc.exists) { 
+                    alert("Database Error: Operator email not found."); 
+                    return; 
+                }
+                
+                forgotTargetEmail = email;
+                forgotOtpCode = Math.floor(1000 + Math.random() * 9000).toString();
+
+                const btn = e.target.querySelector('button');
+                const originalText = btn ? btn.innerText : "Send Recovery OTP";
+                if(btn) {
+                    btn.innerText = "Dispatching Reset Code...";
+                    btn.disabled = true;
+                }
+
+                const templateParams = {
+                    to_email: email,
+                    to_name: doc.data().username || 'Operator',
+                    otp: forgotOtpCode,
+                    time: "10 minutes"
+                };
+
+                emailjs.send('service_zs86exl', 'template_anhjb86', templateParams)
+                    .then(function(response) {
+                        alert("Password recovery code successfully sent to email!");
+                        document.getElementById('forgot-email-form').classList.add('hidden');
+                        document.getElementById('forgot-reset-form').classList.remove('hidden');
+                        updateGlobalBackButton();
+                        if(btn) {
+                            btn.innerText = originalText;
+                            btn.disabled = false;
+                        }
+                    }, function(error) {
+                        alert("Dispatch Failed: " + JSON.stringify(error));
+                        if(btn) {
+                            btn.innerText = originalText;
+                            btn.disabled = false;
+                        }
+                    });
+
+            }).catch(err => {
+                alert("Database Error: " + err.message);
+            });
+        }
+
+        async function handleVerifyAndReset(e) {
+            e.preventDefault();
+            const enteredOtp = document.getElementById('forgot-otp-input').value.trim();
+            if (enteredOtp !== forgotOtpCode) {
+                alert("Authentication Error: Invalid OTP code."); return;
+            }
+            const newPassword = document.getElementById('new-password-input').value;
+            const hasLetter = /[a-zA-Z]/.test(newPassword);
+            const hasNumber = /[0-9]/.test(newPassword);
+            const hasSpecial = /[\W_]/.test(newPassword);
+            const minLength = newPassword.length >= 8;
+
+            if (!minLength || !hasLetter || !hasNumber || !hasSpecial) {
+                alert("Security Error: Password must be at least 8 characters long and include a letter, number, and special character.");
+                return;
+            }
+
+            try {
+                await db.collection('users').doc(forgotTargetEmail).update({ password: newPassword });
+                alert("Security key updated successfully! Please login.");
+                showSection('login-section');
+            } catch (err) {
+                alert("Update Error: " + err.message);
+            }
+        }
+
+        function updateDashboard() {
+            checkDailyReset();
+            document.getElementById('user-display-name').innerText = currentUser.username;
+            document.getElementById('user-display-id').innerText = currentUser.userId;
+            document.getElementById('wallet-balance').innerText = currentUser.balance.toFixed(2) + " USDTX";
+
+            const container = document.getElementById('tasks-container');
+            container.innerHTML = "";
+
+            const taskNames = {
+                1: "Task 1: View Ad Stream",
+                2: "Task 2: View Ad Stream",
+                3: "Task 3: View Ad Stream",
+                4: "Task 4: View Ad Stream",
+                5: "Task 5: View Ad Stream",
+                6: "Task 6: Broadcast Network Link",
+                7: "Task 7: Join Intelligence Channel"
+            };
+
+            for (let i = 1; i <= 7; i++) {
+                if ((i === 6 || i === 7) && currentUser.oneTimeTasks && currentUser.oneTimeTasks.includes(i)) {
+                    continue;
+                }
+
+                const isCompleted = currentUser.completedTasks.includes(i);
+                const isUnlocked = (i === 1) || currentUser.completedTasks.includes(i - 1) || ((i === 6 || i === 7) && currentUser.completedTasks.includes(i - 1));
+                
+                const div = document.createElement('div');
+                div.className = `p-4 rounded-xl border transition ${isUnlocked && !isCompleted ? 'border-green-500/40 bg-[#07090e]' : 'border-gray-800 opacity-60 bg-[#07090e]/50'} space-y-2.5`;
+                
+                let adContent = "";
+                if (i <= 5) {
+                    adContent = `
+                        <div class="bg-[#0b0f19] border border-dashed border-gray-800 p-2.5 rounded-xl text-center">
+                            <span class="text-[10px] uppercase text-yellow-400 font-mono font-bold tracking-wider">📢 Sponsored Ad Stream #${i}</span>
+                            <div class="mt-1 text-[11px] text-gray-400">
+                                Validate sponsored stream link to claim node reward
+                            </div>
+                        </div>
+                    `;
+                } else if (i === 6) {
+                    adContent = `
+                        <div class="bg-[#0b0f19] border border-dashed border-green-500/30 p-2.5 rounded-xl text-center">
+                            <span class="text-[10px] uppercase text-green-400 font-mono font-bold tracking-wider">📢 Affiliate Broadcast Node</span>
+                            <div class="mt-1 text-[11px] text-gray-400">
+                                Broadcast link <button onclick="handleSharePlatform()" class="text-green-400 underline font-bold">http://usdtx.sbs/</button> to peers.
+                            </div>
+                        </div>
+                    `;
+                } else if (i === 7) {
+                    adContent = `
+                        <div class="bg-[#0b0f19] border border-dashed border-green-500/30 p-2.5 rounded-xl text-center">
+                            <span class="text-[10px] uppercase text-green-400 font-mono font-bold tracking-wider">📢 Telegram Intelligence Node</span>
+                            <div class="mt-1 text-[11px] text-gray-400">
+                                Connect with <a href="https://t.me/usdtxnetwork" target="_blank" class="text-green-400 underline font-bold">t.me/usdtxnetwork</a>.
+                            </div>
+                        </div>
+                    `;
+                }
+
+                div.innerHTML = `
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                        <div>
+                            <p class="font-bold text-white text-xs flex items-center gap-1.5">
+                                <span>${taskNames[i]}</span>
+                                ${!isUnlocked ? '<span class="text-[10px]">🔒</span>' : ''}
+                            </p>
+                            <span class="text-green-400 text-xs font-mono font-bold">+${taskRewards[i].toFixed(2)} USDTX</span>
+                        </div>
+                        <button onclick="completeTask(${i})" ${!isUnlocked || isCompleted ? 'disabled' : ''} class="${isUnlocked && !isCompleted ? 'btn-professional text-black font-black shadow-md' : 'bg-gray-800 text-gray-500 cursor-not-allowed font-semibold'} px-4 py-2 rounded-xl text-xs uppercase tracking-wider transition w-full sm:w-auto text-center">
+                            ${isCompleted ? 'Complete ✔' : (isUnlocked ? 'Redeem Coin' : 'Locked')}
+                        </button>
+                    </div>
+                    ${adContent}
+                `;
+                container.appendChild(div);
+            }
+            fetchLeaderboardFromCloud();
+        }
+
+        async function completeTask(id) {
+            if (currentUser.completedTasks.includes(id)) return;
+            
+            if (id <= 5) {
+                // Safe anchor click fallback for Monetag Direct Link to bypass pop-up blockers
+                const link = document.createElement('a');
+                link.href = "https://omg10.com/4/11638882";
+                link.target = "_blank";
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            } else if (id === 6) {
+                handleSharePlatform();
+            } else if (id === 7) {
+                window.open('https://t.me/usdtxnetwork', '_blank');
+            }
+
+            if (id === 6) {
+                if (!confirm("Did you broadcast the network link to peers? Click OK to verify node output.")) {
+                    alert("Verification Failed: Broadcast confirmation required.");
+                    return;
+                }
+            } else if (id === 7) {
+                if (!confirm("Did you connect with the official Telegram channel (t.me/usdtxnetwork)? Click OK to verify.")) {
+                    alert("Verification Failed: Connection required.");
+                    return;
+                }
+            } else {
+                alert("Opening ad stream link... Review stream and return to claim node balance.");
+            }
+
+            setTimeout(async () => {
+                currentUser.completedTasks.push(id);
+                if (id === 6 || id === 7) {
+                    if (!currentUser.oneTimeTasks) currentUser.oneTimeTasks = [];
+                    currentUser.oneTimeTasks.push(id);
+                }
+                
+                const earnedReward = taskRewards[id];
+                currentUser.balance += earnedReward;
+
+                if (currentUser.referredBy) {
+                    try {
+                        let refDocRef = db.collection('users').where('userId', '==', currentUser.referredBy);
+                        let querySnapshot = await refDocRef.get();
+                        if (!querySnapshot.empty) {
+                            let referrerDoc = querySnapshot.docs[0];
+                            let referrerData = referrerDoc.data();
+                            const commission = earnedReward * 0.01;
+                            let newRefBalance = referrerData.balance + commission;
+                            let newRefEarnings = (referrerData.referralEarnings || 0) + commission;
+
+                            await db.collection('users').doc(referrerData.email).update({
+                                balance: newRefBalance,
+                                referralEarnings: newRefEarnings
+                            });
+                        }
+                    } catch (e) {
+                        console.error("Affiliate commission error:", e);
+                    }
+                }
+
+                await saveUserData();
+                updateDashboard();
+                alert(`Task #${id} validated successfully! Reward credited to vault.`);
+            }, 1000);
+        }
+
+        async function saveUserData() {
+            try {
+                await db.collection('users').doc(currentUser.email).set(currentUser);
+                localStorage.setItem('usdtx_current_user', JSON.stringify(currentUser));
+                fetchLeaderboardFromCloud();
+            } catch (err) {
+                console.error("Vault synchronization error:", err);
+            }
+        }
+
+        function fetchLeaderboardFromCloud() {
+            db.collection('users').orderBy('balance', 'desc').get().then(snapshot => {
+                const list = document.getElementById('leaderboard-list');
+                if(!list) return;
+                list.innerHTML = "";
+                let idx = 1;
+                snapshot.forEach(doc => {
+                    let u = doc.data();
+                    const isMe = currentUser && currentUser.email === u.email;
+                    const item = document.createElement('div');
+                    item.className = `flex justify-between items-center p-2 rounded-lg border text-xs ${isMe ? 'border-green-500 bg-green-500/10' : 'border-gray-800/80 bg-[#07090e]'}`;
+                    item.innerHTML = `<span class="font-semibold text-gray-300">#${idx} ${u.username} ${isMe ? '<span class="text-green-400 font-bold">(You)</span>' : ''}</span><strong class="text-green-400 font-mono">${(u.balance || 0).toFixed(2)} USDTX</strong>`;
+                    list.appendChild(item);
+                    idx++;
+                });
+            }).catch(err => {
+                console.error("Leaderboard fetch error:", err);
+            });
+        }
+
+        function toggleProfileDrawer(show) {
+            const drawer = document.getElementById('profile-drawer');
+            if (show) {
+                document.getElementById('profile-modal-name').innerText = currentUser.username;
+                document.getElementById('profile-modal-id').innerText = currentUser.userId;
+                document.getElementById('profile-modal-email').innerText = currentUser.email;
+                
+                const img = document.getElementById('profile-pic-preview');
+                const placeholder = document.getElementById('profile-pic-placeholder');
+                if (currentUser.profilePic) {
+                    img.src = currentUser.profilePic;
+                    img.classList.remove('hidden');
+                    placeholder.classList.add('hidden');
+                } else {
+                    img.classList.add('hidden');
+                    placeholder.classList.remove('hidden');
+                }
+                toggleEditName(false);
+                drawer.classList.remove('hidden');
+            } else {
+                drawer.classList.add('hidden');
+            }
+        }
+
+        function toggleEditName(show) {
+            const editDiv = document.getElementById('name-edit-view');
+            if (show) {
+                document.getElementById('edit-username').value = currentUser.username;
+                editDiv.classList.remove('hidden');
+            } else {
+                editDiv.classList.add('hidden');
+            }
+        }
+
+        async function saveProfileName() {
+            const newName = document.getElementById('edit-username').value.trim();
+            if (!newName) { alert("Operator name cannot be empty."); return; }
+            currentUser.username = newName;
+            await saveUserData();
+            toggleEditName(false);
+            document.getElementById('profile-modal-name').innerText = newName;
+            document.getElementById('user-display-name').innerText = newName;
+            alert("Operator name successfully updated!");
+        }
+
+        async function handleProfilePicUpload(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = async function(evt) {
+                    currentUser.profilePic = evt.target.result;
+                    await saveUserData();
+                    toggleProfileDrawer(true);
+                    alert("Operator avatar updated!");
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        async function handleChangePassword(e) {
+            e.preventDefault();
+            const oldP = document.getElementById('old-pass').value;
+            const newP = document.getElementById('new-pass').value;
+            if (currentUser.password !== oldP) { alert("Security Error: Current password incorrect."); return; }
+            if (!validatePassword(newP)) return;
+            currentUser.password = newP;
+            await saveUserData();
+            alert("Security key successfully updated!");
+            document.getElementById('old-pass').value = '';
+            document.getElementById('new-pass').value = '';
+            toggleProfileDrawer(false);
+        }
+
+        function handleLogout() {
+            localStorage.removeItem('usdtx_current_user');
+            currentUser = null;
+            toggleProfileDrawer(false);
+            initApp();
+        }
+    </script>
+</body>
+</html>
